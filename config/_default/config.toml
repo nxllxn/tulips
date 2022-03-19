@@ -1,5 +1,5 @@
 ######################## default configuration ####################
-baseURL = "https://demo.gethugothemes.com/logbook/"
+baseURL = "https://www.tlst.cc/"
 title = "LogBook | Hugo Personal Blog Template"
 theme = "logbook"
 # post pagination
