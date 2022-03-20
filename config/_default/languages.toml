@@ -1,6 +1,6 @@
 ################################### English language #####################################
 [en]
-languageName = "En"
+languageName = "English"
 languageCode = "en-us"
 contentDir = "content/english"
 weight = 1
@@ -13,7 +13,7 @@ copyright = "Design By [Themefisher](https://themefisher.com/) Develop By [Gethu
 
 ################################### French language #####################################
 [fr]
-languageName = "Fr"
+languageName = "French"
 languageCode = "fr-fr"
 contentDir = "content/french"
 weight = 2
@@ -22,3 +22,16 @@ home = "Accueil"
 footer_content = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
 # copyright
 copyright = "Design By [Themefisher](https://themefisher.com/) Develop By [Gethugothemes](https://gethugothemes.com/)"
+
+
+################################### Chinese language #####################################
+[zh]
+languageName = "简体中文"
+languageCode = "zh-cn"
+contentDir = "content/chinese"
+weight = 3
+home = "主页"
+# footer content
+footer_content = "本博客由郁金香啊实现和维护, 基于Go & Hugo & LogBook Theme & Aliyun Ecs"
+# copyright
+copyright = "Copyright @ 2022 郁金香啊"

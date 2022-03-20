@@ -6,14 +6,14 @@ logo = "images/logo.png"
 # use `x` with logo_width, example: "100x"
 logo_width = "150x"
 # logo text will only show when logo is missing.
-logo_text = "LogBook"
+logo_text = "Tulips"
 page_not_found_image = "images/404.png" # 404 error page image
 # image gallery shortcode
 image_gallery = true
 # email address
-email = "georgia.young@example.com"
+email = "ningwenchao@163.com"
 # contact form action
-contact_form_action = "#" # contact form works with https://formspree.io
+contact_form_action = "mailto:ningwenchao@163.com" # contact form works with https://formspree.io
 # search
 search = true
 # main sections
@@ -29,8 +29,8 @@ custom_script= ""
 
 # Preloader
 [preloader]
-enable = false
-preloader = "" # use jpg, png, svg or gif format.
+enable = true
+preloader = "images/logo.png" # use jpg, png, svg or gif format.
 
 # Subscription
 [subscription]
@@ -48,18 +48,18 @@ currency = "$"
 
 # promotion
 [promotion]
-title = "Create Stunning Website!!"
-content = "Lorem ipsum dolor sit amet, consectetur sociis. Etiam nunc amet id dignissim. Feugiat id tempor vel sit ornare."
-image = "images/promotion.jpg"
-button_label = "Get Started"
-button_link = "https://themefisher.com/"
+title = "加入我 & 尝试更多Hugo主题"
+content = ""
+image = "images/gethugothemes.png"
+button_label = "Join me"
+button_link = "mailto:ningwenchao@163.com"
 
 # seo meta data for OpenGraph / Twitter Card
 [metadata]
-keywords = ["Boilerplate", "Hugo", "Themefisher", "GetHugoThemes"]
-description = "This is meta description"
-author = "Themefisher"
-image = "images/favicon.png" # this image will be used as fallback if a page has no image of its own
+keywords = ["郁金香啊", "Tulips", "Tulip", "tulips", "tulip", "Hugo", "GetHugoThemes"]
+description = "郁金香啊的个人网站"
+author = "郁金香啊"
+image = "images/logo.png" # this image will be used as fallback if a page has no image of its own
 
 # matomo tracking: see https://matomo.org/
 [matomo]
@@ -74,8 +74,8 @@ analytics_id = "" # Your ID
 
 # plausible analytics: see https://plausible.io/
 [plausible]
-enable = false
-domain = "" # yourdomain.com
+enable = true
+domain = "http://www.tlst.cc/" # yourdomain.com
 
 # counter analytics: see https://counter.dev/setup.html
 [counter]
@@ -105,16 +105,6 @@ sidebar = ["search", "about-me", "promotion", "subscription", "categories", "rec
 
 ############################# social site ########################
 [[social]]
-name = "facebook"
-icon = "fab fa-facebook" # fontawesome icons: https://fontawesome.com/icons/
-link = "#"
-
-[[social]]
-name = "twitter"
-icon = "fab fa-twitter" # fontawesome icons: https://fontawesome.com/icons/
-link = "#"
-
-[[social]]
 name = "linkedin"
 icon = "fab fa-linkedin-in" # fontawesome icons: https://fontawesome.com/icons/
 link = "#"
@@ -122,4 +112,4 @@ link = "#"
 [[social]]
 name = "github"
 icon = "fab fa-github" # fontawesome icons: https://fontawesome.com/icons/
-link = "#"
+link = "https://github.com/nxllxn"

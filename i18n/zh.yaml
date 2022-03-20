@@ -1,0 +1,62 @@
+- id: continue_reading
+  translation: 继续阅读
+
+- id: search_placeholder
+  translation: 请输入 & 回车以继续
+
+- id: latest_article
+  translation: 最近文章
+
+- id: categories
+  translation: 分类
+
+- id: tags
+  translation: 标签
+
+- id: search
+  translation: 搜索
+
+- id: date
+  translation: 日期
+
+- id: posted_by
+  translation: 发布人
+
+- id: send
+  translation: 立即发送
+
+- id: name
+  translation: 您的名字
+
+- id: email
+  translation: 您的邮箱
+
+- id: message
+  translation: 消息内容
+
+- id: subscribe
+  translation: 立即订阅
+
+- id: write_email
+  translation: 发送邮件给我们
+
+- id: subscribe_newsletter
+  translation: 订阅Newsletter
+
+- id: quick_links
+  translation: 快速访问
+
+- id: social
+  translation: 社交链接
+
+- id: back_to_home
+  translation: 返回主页
+
+- id: about_me
+  translation: 关于作者
+
+- id: page_not_found
+  translation: 抱歉，您查找的内容搬去火星啦~
+
+- id: search_results_for
+  translation: 搜索结果

@@ -1,7 +1,7 @@
 ---
-title: "John Doe"
-image: "images/author.jpg"
-email: "johndoe@logbook.com"
+title: "Tulips"
+image: "images/author.png"
+email: "ningwenchao@163.com"
 social:
   - icon : "fas fa-facebook" # themify icon pack : https://themify.me/themify-icons
     link : "#"

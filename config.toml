@@ -1,4 +1,5 @@
 baseURL = 'https://www.tlst.cc/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+defaultContentLanguage = 'zh'
+languageCode = 'zh-cn'
+title = 'Tulips'
 theme = 'logbook'

@@ -1,0 +1,135 @@
+############### English navigation ################
+
+# Dropdown menu
+[[main]]
+weight = 1
+name = "主页"
+hasChildren = true
+
+  [[main]]
+  parent = "主页"
+  name = "全屏"
+  url = "homepage/full/"
+  weight = 1
+
+  [[main]]
+  parent = "主页"
+  name = "全屏 & 左侧边栏"
+  url = "homepage/full-left/"
+  weight = 2
+
+  [[main]]
+  parent = "主页"
+  name = "全屏 & 右侧边栏"
+  url = "homepage/full-right/"
+  weight = 3
+
+  [[main]]
+  parent = "主页"
+  name = "列表"
+  url = "homepage/list/"
+  weight = 4
+
+  [[main]]
+  parent = "主页"
+  name = "列表 & 左侧边栏"
+  url = "homepage/list-left/"
+  weight = 5
+
+  [[main]]
+  parent = "主页"
+  name = "列表 & 右侧边栏"
+  url = "homepage/list-right/"
+  weight = 6
+
+  [[main]]
+  parent = "主页"
+  name = "网格"
+  url = "homepage/grid/"
+  weight = 7
+
+  [[main]]
+  parent = "主页"
+  name = "网格 & 左侧边栏"
+  url = "homepage/grid-left/"
+  weight = 8
+
+  [[main]]
+  parent = "主页"
+  name = "网格 & 右侧边栏"
+  url = "homepage/grid-right/"
+  weight = 9
+
+
+[[main]]
+name = "关于"
+url = "about"
+weight = 2
+
+[[main]]
+name = "联系我"
+url = "contact"
+weight = 3
+
+# Dropdown menu
+[[main]]
+weight = 4
+name = "页面"
+hasChildren = true
+
+  [[main]]
+  parent = "页面"
+  name = "作者"
+  url = "author/tulips"
+  weight = 1
+
+  [[main]]
+  parent = "页面"
+  name = "分类"
+  url = "categories/photography"
+  weight = 2
+
+  [[main]]
+  parent = "页面"
+  name = "标签"
+  url = "tags/photo"
+  weight = 3
+
+  [[main]]
+  parent = "页面"
+  name = "搜索"
+  url = "http://demo.gethugothemes.com/logbook/search/?s=image"
+  weight = 4
+
+  [[main]]
+  parent = "页面"
+  name = "元素"
+  url = "elements/"
+  weight = 5
+
+[[main]]
+name = "商店"
+url = "shop"
+weight = 5
+
+
+# footer menu
+[[footer]]
+name = "关于"
+url = "about"
+weight = 1
+
+[[footer]]
+name = "联系我"
+url = "contact"
+weight = 2
+
+[[footer]]
+name = "隐私政策"
+url = "privacy-policy"
+weight = 3
+
+[[footer]]
+name = "其他条款"
+url = "terms-conditions"
+weight = 4

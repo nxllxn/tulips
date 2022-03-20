@@ -1,6 +1,6 @@
 ######################## default configuration ####################
 baseURL = "https://www.tlst.cc/"
-title = "LogBook | Hugo Personal Blog Template"
+title = "Tulips"
 theme = "logbook"
 # post pagination
 paginate = "5"
@@ -10,8 +10,9 @@ summaryLength = "50"
 googleAnalytics = "" # Ex: UA-123-45
 # disqus short name
 disqusShortname = "themefisher-template" # get your shortname form here : https://disqus.com
+languageCode = 'zh'
 # disable language
-disableLanguages = [] # desable language from here
+disableLanguages = ["fr","en"] # desable language from here
 
 ############################# Modules ##############################
 [module]
