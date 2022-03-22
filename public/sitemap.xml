@@ -2,35 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.tlst.cc/post/</loc>
+    <lastmod>2022-03-21T20:12:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/categories/</loc>
+    <lastmod>2022-03-21T20:12:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/tags/go/</loc>
+    <lastmod>2022-03-21T20:12:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/tags/hugo/</loc>
+    <lastmod>2022-03-21T20:12:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/tags/logbook/</loc>
+    <lastmod>2022-03-21T20:12:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/tags/</loc>
+    <lastmod>2022-03-21T20:12:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/</loc>
+    <lastmod>2022-03-21T20:12:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/categories/tutorial/</loc>
+    <lastmod>2022-03-21T20:12:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/post/blog-with-go-hugo-nginx/</loc>
+    <lastmod>2022-03-21T20:12:33+08:00</lastmod>
+  </url><url>
     <loc>https://www.tlst.cc/shop/product-3/</loc>
     <lastmod>2020-04-14T15:40:24+06:00</lastmod>
   </url><url>
     <loc>https://www.tlst.cc/shop/</loc>
     <lastmod>2020-04-14T15:40:24+06:00</lastmod>
-  </url><url>
-    <loc>https://www.tlst.cc/</loc>
-    <lastmod>2020-04-14T15:40:24+06:00</lastmod>
-  </url><url>
-    <loc>https://www.tlst.cc/post/</loc>
-    <lastmod>2020-03-15T15:40:24+06:00</lastmod>
-  </url><url>
-    <loc>https://www.tlst.cc/categories/</loc>
-    <lastmod>2020-03-15T15:40:24+06:00</lastmod>
-  </url><url>
-    <loc>https://www.tlst.cc/post/elements/</loc>
-    <lastmod>2020-03-15T15:40:24+06:00</lastmod>
-  </url><url>
-    <loc>https://www.tlst.cc/tags/image/</loc>
-    <lastmod>2020-03-15T15:40:24+06:00</lastmod>
-  </url><url>
-    <loc>https://www.tlst.cc/tags/photo/</loc>
-    <lastmod>2020-03-15T15:40:24+06:00</lastmod>
-  </url><url>
-    <loc>https://www.tlst.cc/categories/photography/</loc>
-    <lastmod>2020-03-15T15:40:24+06:00</lastmod>
-  </url><url>
-    <loc>https://www.tlst.cc/tags/</loc>
-    <lastmod>2020-03-15T15:40:24+06:00</lastmod>
   </url><url>
     <loc>https://www.tlst.cc/shop/product-7/</loc>
     <lastmod>2020-03-14T15:40:24+06:00</lastmod>
@@ -44,55 +47,31 @@
     <loc>https://www.tlst.cc/post/post-2/</loc>
     <lastmod>2020-03-14T15:40:24+06:00</lastmod>
   </url><url>
-    <loc>https://www.tlst.cc/post/post-3/</loc>
-    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
-  </url><url>
-    <loc>https://www.tlst.cc/post/post-4/</loc>
-    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
-  </url><url>
-    <loc>https://www.tlst.cc/post/post-5/</loc>
-    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
-  </url><url>
-    <loc>https://www.tlst.cc/post/post-6/</loc>
-    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
-  </url><url>
-    <loc>https://www.tlst.cc/tags/city/</loc>
-    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
-  </url><url>
     <loc>https://www.tlst.cc/shop/product-6/</loc>
     <lastmod>2020-03-14T15:40:24+06:00</lastmod>
   </url><url>
-    <loc>https://www.tlst.cc/categories/four-seasone/</loc>
+    <loc>https://www.tlst.cc/tags/image/</loc>
     <lastmod>2020-03-14T15:40:24+06:00</lastmod>
   </url><url>
     <loc>https://www.tlst.cc/shop/product-1/</loc>
     <lastmod>2020-03-14T15:40:24+06:00</lastmod>
   </url><url>
-    <loc>https://www.tlst.cc/tags/new/</loc>
-    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
-  </url><url>
-    <loc>https://www.tlst.cc/categories/newyork-city/</loc>
+    <loc>https://www.tlst.cc/tags/photo/</loc>
     <lastmod>2020-03-14T15:40:24+06:00</lastmod>
   </url><url>
     <loc>https://www.tlst.cc/categories/photobooth/</loc>
     <lastmod>2020-03-14T15:40:24+06:00</lastmod>
   </url><url>
-    <loc>https://www.tlst.cc/shop/product-4/</loc>
+    <loc>https://www.tlst.cc/categories/photography/</loc>
     <lastmod>2020-03-14T15:40:24+06:00</lastmod>
   </url><url>
-    <loc>https://www.tlst.cc/tags/seasone/</loc>
+    <loc>https://www.tlst.cc/shop/product-4/</loc>
     <lastmod>2020-03-14T15:40:24+06:00</lastmod>
   </url><url>
     <loc>https://www.tlst.cc/shop/product-2/</loc>
     <lastmod>2020-03-14T15:40:24+06:00</lastmod>
   </url><url>
     <loc>https://www.tlst.cc/shop/product-8/</loc>
-    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
-  </url><url>
-    <loc>https://www.tlst.cc/tags/video/</loc>
-    <lastmod>2020-03-14T15:40:24+06:00</lastmod>
-  </url><url>
-    <loc>https://www.tlst.cc/categories/videography/</loc>
     <lastmod>2020-03-14T15:40:24+06:00</lastmod>
   </url><url>
     <loc>https://www.tlst.cc/shop/product-5/</loc>

@@ -7,22 +7,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright @ 2022 郁金香啊</copyright>
-    <lastBuildDate>Sun, 15 Mar 2020 15:40:24 +0600</lastBuildDate><atom:link href="https://www.tlst.cc/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Mar 2022 20:12:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>image</title>
-      <link>https://www.tlst.cc/tags/image/</link>
-      <pubDate>Sun, 15 Mar 2020 15:40:24 +0600</pubDate>
+      <title>Go</title>
+      <link>https://www.tlst.cc/tags/go/</link>
+      <pubDate>Mon, 21 Mar 2022 20:12:33 +0800</pubDate>
       
-      <guid>https://www.tlst.cc/tags/image/</guid>
+      <guid>https://www.tlst.cc/tags/go/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>photo</title>
-      <link>https://www.tlst.cc/tags/photo/</link>
-      <pubDate>Sun, 15 Mar 2020 15:40:24 +0600</pubDate>
+      <title>Hugo</title>
+      <link>https://www.tlst.cc/tags/hugo/</link>
+      <pubDate>Mon, 21 Mar 2022 20:12:33 +0800</pubDate>
       
-      <guid>https://www.tlst.cc/tags/photo/</guid>
+      <guid>https://www.tlst.cc/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Logbook</title>
+      <link>https://www.tlst.cc/tags/logbook/</link>
+      <pubDate>Mon, 21 Mar 2022 20:12:33 +0800</pubDate>
+      
+      <guid>https://www.tlst.cc/tags/logbook/</guid>
       <description></description>
     </item>
     
@@ -36,38 +45,20 @@
     </item>
     
     <item>
-      <title>city</title>
-      <link>https://www.tlst.cc/tags/city/</link>
+      <title>image</title>
+      <link>https://www.tlst.cc/tags/image/</link>
       <pubDate>Sat, 14 Mar 2020 15:40:24 +0600</pubDate>
       
-      <guid>https://www.tlst.cc/tags/city/</guid>
+      <guid>https://www.tlst.cc/tags/image/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>new</title>
-      <link>https://www.tlst.cc/tags/new/</link>
+      <title>photo</title>
+      <link>https://www.tlst.cc/tags/photo/</link>
       <pubDate>Sat, 14 Mar 2020 15:40:24 +0600</pubDate>
       
-      <guid>https://www.tlst.cc/tags/new/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>seasone</title>
-      <link>https://www.tlst.cc/tags/seasone/</link>
-      <pubDate>Sat, 14 Mar 2020 15:40:24 +0600</pubDate>
-      
-      <guid>https://www.tlst.cc/tags/seasone/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>video</title>
-      <link>https://www.tlst.cc/tags/video/</link>
-      <pubDate>Sat, 14 Mar 2020 15:40:24 +0600</pubDate>
-      
-      <guid>https://www.tlst.cc/tags/video/</guid>
+      <guid>https://www.tlst.cc/tags/photo/</guid>
       <description></description>
     </item>
     
