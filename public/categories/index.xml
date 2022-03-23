@@ -7,31 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright @ 2022 郁金香啊</copyright>
-    <lastBuildDate>Mon, 21 Mar 2022 20:12:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Mar 2022 20:29:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>tutorial</title>
-      <link>https://www.tlst.cc/categories/tutorial/</link>
-      <pubDate>Mon, 21 Mar 2022 20:12:33 +0800</pubDate>
+      <title>Algorithms</title>
+      <link>https://www.tlst.cc/categories/algorithms/</link>
+      <pubDate>Thu, 24 Mar 2022 20:29:33 +0800</pubDate>
       
-      <guid>https://www.tlst.cc/categories/tutorial/</guid>
+      <guid>https://www.tlst.cc/categories/algorithms/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Photobooth</title>
-      <link>https://www.tlst.cc/categories/photobooth/</link>
-      <pubDate>Sat, 14 Mar 2020 15:40:24 +0600</pubDate>
+      <title>Tutorials</title>
+      <link>https://www.tlst.cc/categories/tutorials/</link>
+      <pubDate>Thu, 24 Mar 2022 20:29:33 +0800</pubDate>
       
-      <guid>https://www.tlst.cc/categories/photobooth/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>photography</title>
-      <link>https://www.tlst.cc/categories/photography/</link>
-      <pubDate>Sat, 14 Mar 2020 15:40:24 +0600</pubDate>
-      
-      <guid>https://www.tlst.cc/categories/photography/</guid>
+      <guid>https://www.tlst.cc/categories/tutorials/</guid>
       <description></description>
     </item>
     

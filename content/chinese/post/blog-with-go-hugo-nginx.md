@@ -9,7 +9,7 @@ author: "郁金香啊"
 # description
 description: "基于Hugo & Nginx搭建博客"
 # Taxonomies
-categories: ["tutorial"]
+categories: ["Tutorials"]
 tags: ["Go","Hugo","Logbook"]
 type: "regular"
 draft: false
@@ -213,7 +213,9 @@ Use "hugo [command] --help" for more information about a command.
 * /themes/<CURRENT-THEME>/*
 * config
 
-> **PS >** 如果你正在准备的内容状态为`draft: true`，在运行`hugo server`命令时不要忘了加上`--buildDrafts`；`publishdate`，`expirydate`也是类似
+{{< notice "info" >}}
+PS > 如果你正在准备的内容状态为`draft: true`，在运行`hugo server`命令时不要忘了加上`--buildDrafts`；`publishdate`，`expirydate`也是类似
+{{< /notice >}}
 
 当然了，我们也可以禁用掉热加载
 ```shell
@@ -272,9 +274,11 @@ drwxr-xr-x  2 hugo  staff   64 Mar 22 21:12 themes
 └── themes    #你的网站的主体，你可以很轻松的更换一个主题，只需要将其放到这个目录并调整你的配置文件即可
 ```
 
-> **PS >** 你可以在[Get Hugo Theme](https://gethugothemes.com/)查看更多主题。
-> 但是你可能需要进行购买，单个主题是49到79美元，相比之下一个捆绑包才99美元（又一个价值杠杆的标志性例子）可能更划算。
-> 如果你有一些功能想要尝试一些比较好看的主题，你可以联系我，我现在已经购买了整个捆绑包，我这边会免费和你协作，比如直接Contribute到你的仓库（相信不收费的话应该没有违反license了吧[Doge][Doge][Doge]）。
+{{< notice "tip" >}}
+PS > 你可以在[Get Hugo Theme](https://gethugothemes.com/)查看更多主题。
+但是你可能需要进行购买，单个主题是49到79美元，相比之下一个捆绑包才99美元（又一个价值杠杆的标志性例子）可能更划算。
+如果你有一些功能想要尝试一些比较好看的主题，你可以联系我，我现在已经购买了整个捆绑包，我这边会免费和你协作，比如直接Contribute到你的仓库（相信不收费的话应该没有违反license了吧[Doge][Doge][Doge]）。
+{{< /notice >}}
 
 ### 第二步 - 为你的网站添加主题 <div id="adding-hugo-theme" >
 ```shell
@@ -340,6 +344,8 @@ Press Ctrl+C to stop
 ```
 
 打开浏览器，输入[http://localhost:1313/](http://localhost:1313/)，就可访问你的第一个静态网站了。
+{{< image src="images/blog-with-go-hugo-nginx/hello-hugo.png" caption="" alt="alter-text" height="" width="" position="center" command="fill" option="q100" class="img-fluid" title="Hello Hugo" webp="false" >}}
+
 
 ## 部署我们的网站到服务器 <div id="deploy-to-cloud" >
 好了网站已经准备好了，现在我们来将我们的网站部署到我们的服务器上。此处我先假定你已经
@@ -450,10 +456,11 @@ drwxr-xr-x@  5 hugo  staff   160 Dec 15 15:20 static
 ➜  themes git branch --set-upstream-to=origin/master master && git push
 ```
 
-> **PS >** 此处我将构件好的`public`目录直接推送到了远程，其实本来可以只推送内容，然后在服务器上安装Go和Hugo然后再生成相应的静态资源。
-> 但是博主使用的Linux服务器操作系统是CentOS 7，在CentOS 7上目前没有extended版本的hugo可用。
-> 我曾尝试基于源码编译，但是执行Go install时 由于一些政策限制无法正常下载依赖的类库等无法构建。
-> 我也曾尝试在本地用Docker启动对应的CentOS环境进行源码编译，但是最终构建失败，一些版本的依赖无法正确解析。最终只能放弃。
+{{< notice "info" >}}
+PS > 此处我将构件好的`public`目录直接推送到了远程，其实本来可以只推送内容，然后在服务器上安装Go和Hugo然后再生成相应的静态资源。
+但是博主使用的Linux服务器操作系统是CentOS 7，在CentOS 7上目前没有extended版本的hugo可用。我曾尝试基于源码编译，但是执行Go install时 由于一些政策限制无法正常下载依赖的类库等无法构建。
+我也曾尝试在本地用Docker启动对应的CentOS环境进行源码编译，但是最终构建失败，一些版本的依赖无法正确解析。最终只能放弃。
+{{< /notice >}}
 
 ### 第四步 - 使用Nginx部署网站 <div id="deploy-with-nginx" >
 最后一步就是使用Nginx部署我们的网站了。这一步相对来说就非常简单了，只需要将我们的源码克隆到我们的服务器上，然后再将`public`目录复制到Nginx默认的静态资源根目录`/usr/share/nginx/html`就好。
