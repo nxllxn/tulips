@@ -401,7 +401,7 @@
           <li class="list-inline-item"><i class="fas fa-user mr-2"></i>
             <a href="/author/%E9%83%81%E9%87%91%E9%A6%99%E5%95%8A/">郁金香啊</a>
           </li>
-          <li class="list-inline-item">日期 : March 24, 2022</li>
+          <li class="list-inline-item">日期 : March 25, 2022</li>
           <li class="list-inline-item">分类 :
             <a
               href="/categories/tutorials" class="ml-1">Tutorials </a>
@@ -442,47 +442,30 @@
         </div>
         
       <div class="col-lg-10 mx-auto">
-        <div class="content"><p>其实很早就想要写一篇动态规划相关的文章，把这个非常棒的算法或者说是一种问题思考方式推荐给更多的人，不 论你是程序员还是其他任何职业的从业人员， 了解动态
-规划都会对你或者说你看待一个问题的方式或多或少产生一些影响，因为它真的太强大了。 那么为什么我会这么觉得呢?</p>
-<p>第一，动态规划几乎可以说是分治在现实世界里面最优雅的一种表达方式。 当我们面对一个非常复杂的问题时，如果这个问题能够划分为子问题并逐个击破，那么此时不用
-想太多，动态规划大概率是解决这个问题的一个最好的工具了，不论是指导你对这个问题进行快速的分析还是最终作为实际的解决方案，动态规划绝对会让你的眼前一亮。</p>
-<p>第二，动态规划不会止步于问题分析以及给出一个递归的解决方案。的确，当我们使用动态规划时，当我们明确了我们的状态以及状态迁移方程，我们很容易得到一个
-基于递归的解决方案。这是动态规划的一大优点所在，即你不需要将一整个问题放到你的脑海中完完整整的想清楚，你只需要瞥见其中的规律，便可以快刀斩乱麻，轻松地
-解决一个非常复杂的问题；但是递归虽好，如果有时候使用不当，你的程序可能需要大量的资源，执行大量的计算，花费更多的时间才能得到最终的结果；好在动态规划
-并没有止步于仅仅给出一个递归的解决方案，除此之外，我们只要使用一些其他的方法或者依赖一些恰当的数据结构，就能够得到一个高效到令人拍案叫绝的解决方案。</p>
+        <div class="content"><p>其实很早就想要写一篇动态规划相关的文章，把这个非常棒的算法或者说是一种问题思考方式推荐给更多的人，不论你是程序员还是其他任何职业的从业人员，了解动态规划都会对你或者说你看待一个问题的方式或多或少产生一些影响，因为它真的太强大了。</p>
+<p>那么为什么我会这么觉得呢?</p>
+<p>第一，动态规划几乎可以说是分治在现实世界里面最优雅的一种表达方式。当我们面对一个非常复杂的问题时，如果这个问题能够划分为子问题并逐个击破，那么此时不用想太多，动态规划大概率是解决这个问题的一个最好的工具了，不论是指导你对这个问题进行快速的分析还是最终作为实际的解决方案，动态规划绝对会让你的眼前一亮。</p>
+<p>第二，动态规划不会止步于问题分析以及给出一个递归的解决方案。的确，当我们使用动态规划时，当我们明确了我们的状态以及状态迁移方程，我们很容易得到一个基于递归的解决方案。这是动态规划的一大优点所在，即你不需要将一整个问题放到你的脑海中完完整整的想清楚，你只需要瞥见其中的规律，便可以快刀斩乱麻，轻松地解决一个非常复杂的问题；但是递归虽好，如果有时候使用不当，你的程序可能需要大量的资源，执行大量的计算，花费更多的时间才能得到最终的结果；好在动态规划并没有止步于仅仅给出一个递归的解决方案，除此之外，我们只要使用一些其他的方法或者依赖一些恰当的数据结构，就能够得到一个高效到令人拍案叫绝的解决方案。</p>
 <p>初次接触到动态规划时，我甚至都不知道自己接触了这个概念，其实就是大家可能经常接触到的一个数学问题，斐波那契数列。</p>
 <blockquote>
 <p>斐波那契数列（Fibonacci sequence），又称黄金分割数列，因数学家莱昂纳多·斐波那契（Leonardo Fibonacci）以兔子繁殖为例子而引入，故又称为“兔子
-数列”，指的是这样一个数列：1、1、2、3、5、8、13、21、34、……在数学上，斐波那契数列以如下被以递推的方法定义：F(0)=0，F(1)=1, F(n)=F(n - 1)+
-F(n - 2)（n ≥ 2，n ∈ N*;</p>
+数列”，指的是这样一个数列：1、1、2、3、5、8、13、21、34、……在数学上，斐波那契数列以如下被以递推的方法定义：F(0)=0，F(1)=1，F(n)=F(n - 1)+
+F(n - 2)（n ≥ 2，n ∈ N*）</p>
 </blockquote>
-<p>你可能会问道，这个斐波那契数列和动态规划又有什么关系呢，哈哈，的确，乍一看，可能这两者之间并没有太大联系，不过这并不奇怪，主要是因为我们已经跳过了动态
-规划的部分，转向了当我们使用动态规划给这个问题求解时所得到的最终的解决方案，所以我们已经看不到动态规划的影子了，也就无从探究它的魅力了。</p>
+<p>你可能会问道，这个斐波那契数列和动态规划又有什么关系呢，哈哈，的确，乍一看，可能这两者之间并没有太大联系，不过这并不奇怪，主要是因为我们已经跳过了动态规划的部分，转向了当我们使用动态规划给这个问题求解时所得到的最终的解决方案，所以我们已经看不到动态规划的影子了，也就无从探究它的魅力了。</p>
 <p>那么怎么办呢，我们可能从这个问题的源头开始说起，我这里不会举这个百度百科或者维基百科上出现的兔子问题，我所要想你展示的是另一个非常有趣的问题&ndash;爬楼梯。</p>
 <blockquote>
 <p>爬楼梯问题，假设有十级楼梯，你每次移动时，要么移动一级台阶，要么移动两级台阶，请问从楼梯的底部到顶部你一共有多少种可能的方式？</p>
 </blockquote>
-<p>当我们拿到这个问题时，我们的大脑可能会不由自主的开始枚举所有可能的结果，比如每一步都只向上移动一级台阶是一种可能的走法，每一步都向上移动两级台阶是一种
-走法，前面四步每一步都移动两级台阶，然后第五步第六步分别移动以及台阶又是一种走法。如此循环往复尝试罗列所有的可能的结果，但是你很快就会发现，想要罗列出
-所有结果对你来说太难了，此外你也应该已经注意到了，现在还仅仅是十几台阶，如果是二十级三十级甚至更多，使用这种枚举的方式几乎是不可能行得通的。</p>
-<p>此时，动态规划的思想就很容易应用到这个问题上了。来，让我们转换一下思路，加入你现在只剩最后一次移动就到达第十级阶梯了，那么你可能的情况是什么呢，你会发
-现此时只会有两种结果，那就是你要么在第九级阶梯，此时你向上移动一级阶梯就可以到达终点了；要么你在第八级阶梯，此时你向上移动两级阶梯同样可以到达终点。那
-么换句话说，你想要到达终点，就必须先到达第八级阶梯或者第九级阶梯，也意味着，走到终点的可能的走法等价于走到第八级阶梯的走法加上走到第九级阶梯的走法。同
-理，想要到达第九级阶梯的走法又等价于走到第七级阶梯的走法加上走到第八级阶梯的走法。一次类推，我们可以得到一个方程式<code>f(n) = f(n - 1) + f(n - 2)</code>。
-此时我们暂时不考虑所谓边界条件。</p>
-<p>OK我们此时已经拿到了一个所谓的方程<code>f(n) = f(n - 1) + f(n - 2)</code>，此时你可能又会尝试调转你的脑细胞还是进行计算了。<code>f(10) = f(9) + f(8)、 f(9) = f(8) + f(7) =&gt; f(10) = f(8) + f(7) + f(8)...</code>。你尝试对最终的结果进行展开，但是你慢慢就会发现你的脑细胞不够用了。其实此处你在做的
-事情就是<code>递归求解</code>，只是这个求解过程可能交给计算机要更加合适，留着你的脑细胞日后想其他问题吧哈哈。不过此处你就会发现递归求解过程可能出现的问题</p>
+<p>当我们拿到这个问题时，我们的大脑可能会不由自主的开始枚举所有可能的结果，比如每一步都只向上移动一级台阶是一种可能的走法，每一步都向上移动两级台阶是一种走法，前面四步每一步都移动两级台阶，然后第五步第六步分别移动以及台阶又是一种走法。如此循环往复尝试罗列所有的可能的结果，但是你很快就会发现，想要罗列出所有结果对你来说太难了，此外你也应该已经注意到了，现在还仅仅是十几台阶，如果是二十级三十级甚至更多，使用这种枚举的方式几乎是不可能行得通的。</p>
+<p>此时，动态规划的思想就很容易应用到这个问题上了。来，让我们转换一下思路，加入你现在只剩最后一次移动就到达第十级阶梯了，那么你可能的情况是什么呢，你会发现此时只会有两种结果，那就是你要么在第九级阶梯，此时你向上移动一级阶梯就可以到达终点了；要么你在第八级阶梯，此时你向上移动两级阶梯同样可以到达终点。那么换句话说，你想要到达终点，就必须先到达第八级阶梯或者第九级阶梯，也意味着，走到终点的可能的走法等价于走到第八级阶梯的走法加上走到第九级阶梯的走法。同理，想要到达第九级阶梯的走法又等价于走到第七级阶梯的走法加上走到第八级阶梯的走法。一次类推，我们可以得到一个方程式<code>f(n) = f(n - 1) + f(n - 2)</code>。此时我们暂时不考虑所谓边界条件。</p>
+<p>OK我们此时已经拿到了一个所谓的方程<code>f(n) = f(n - 1) + f(n - 2)</code>，此时你可能又会尝试调转你的脑细胞还是进行计算了。<code>f(10) = f(9) + f(8)、f(9) = f(8) + f(7) =&gt; f(10) = f(8) + f(7) + f(8)...</code>。你尝试对最终的结果进行展开，但是你慢慢就会发现你的脑细胞不够用了。其实此处你在做的事情就是<code>递归求解</code>，只是这个求解过程可能交给计算机要更加合适，留着你的脑细胞日后想其他问题吧哈哈。不过此处你就会发现递归求解过程可能出现的问题</p>
 <ul>
-<li>当我们进行一次展开之后我们就会发现表达式<code>f(10) = f(8) + f(7) + f(8)</code>中出现了两个<code>f(8)</code>,其实这个我们也称之为子问题，我们发现这个子问题可能被
-重复计算了</li>
-<li>即使我们想办法解决了重复子问题的这个缺点（动态规划很擅长这个，同时也是动态规划问题中一个很核心的步骤），我们仍然需要大量的方法调用，这是递归的很明显
-的一个缺点，当我们的计算量比较大时，大量的方法调用，还是会对计算性能产生很大的影响。所以我上面也提到过，动态规划并不会止步于一个递归的解决方案，除此
-之外，它还会更进一步，再进一步，最终得到一个迭代的解决方案，让我们的程序更加快速高效地计算出我们想要的结果。</li>
+<li>当我们进行一次展开之后我们就会发现表达式<code>f(10) = f(8) + f(7) + f(8)</code>中出现了两个<code>f(8)</code>，其实这个我们也称之为子问题，我们发现这个子问题可能被重复计算了</li>
+<li>即使我们想办法解决了重复子问题的这个缺点（动态规划很擅长这个，同时也是动态规划问题中一个很核心的步骤），我们仍然需要大量的方法调用，这是递归的很明显的一个缺点，当我们的计算量比较大时，大量的方法调用，还是会对计算性能产生很大的影响。所以我上面也提到过，动态规划并不会止步于一个递归的解决方案，除此之外，它还会更进一步，再进一步，最终得到一个迭代的解决方案，让我们的程序更加快速高效地计算出我们想要的结果。</li>
 </ul>
-<p>那么让我们回到这个问题本身，我们如何利用迭代的方式得到我们最终的结果呢？让我们想一下，如果只有一级阶梯，那么显然我们只有一种走法，因此我们可以得到
-<code>f(1) = 1</code>；如果有两级阶梯，我们要么分两步走，每步向上移动一级台阶，也可以一次性向上移动两级台阶，所以我们有两种可能的走法，所以可以得到<code>f(2) = 3</code></p>
-<p>好的，很棒到目前位置一切都很棒，也很好理解。但是如果是三级台阶呢，哈哈，脑子是不是又转不过来了。不要怕，我们已经有了一个现成的方程式可以用了对吧，就是
-前面提到的<code>f(n) = f(n - 1) + f(n - 2)</code>，那么<code>f(3)</code>就应该等于<code>f(2) + f(1)</code>结果为<code>3</code>，同理让我们继续求解</p>
+<p>那么让我们回到这个问题本身，我们如何利用迭代的方式得到我们最终的结果呢？让我们想一下，如果只有一级阶梯，那么显然我们只有一种走法，因此我们可以得到<code>f(1) = 1</code>；如果有两级阶梯，我们要么分两步走，每步向上移动一级台阶，也可以一次性向上移动两级台阶，所以我们有两种可能的走法，所以可以得到<code>f(2) = 3</code></p>
+<p>好的，很棒到目前为止一切都很棒，也很好理解。但是如果是三级台阶呢，哈哈，脑子是不是又转不过来了。不要怕，我们已经有了一个现成的方程式可以用了对吧，就是前面提到的<code>f(n) = f(n - 1) + f(n - 2)</code>，那么<code>f(3)</code>就应该等于<code>f(2) + f(1)</code>结果为<code>3</code>，同理让我们继续求解</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#66d9ef">*</span> <span style="color:#e6db74">`f(1) = 1`</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">*</span> <span style="color:#e6db74">`f(2) = 2`</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">*</span> <span style="color:#e6db74">`f(3) = f(2) + f(1) = 3`</span>
@@ -494,12 +477,206 @@ F(n - 2)（n ≥ 2，n ∈ N*;</p>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">*</span> <span style="color:#e6db74">`f(9) = f(8) + f(7) = 55`</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">*</span> <span style="color:#e6db74">`f(10) = f(9) + f(8) = 89`</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">*</span> ...
-</span></span></code></pre></div><p>完美，我们得到了最终的答案，同时你也会发现，这个等号左边的数列似乎有些眼熟，哈哈，是不是没有想到斐波那契数列居然和爬楼梯有点关系，那么如果你腿比较长，
-偶尔可以跨三级或者四级阶梯，你知道怎么计算了吗哈哈。</p>
-<p>好的第一部分就到此结束了，只是简单感受一下动态规划，接下来我会讲一下动态规划的系统性方法，其实这是翻译自博客<a href="https://betterprogramming.pub/a-systematic-approach-to-dynamic-programming-54902b6b0071" target="_blank">A Systematic Approach to Dynamic
-Programming</a>，感兴趣的小伙伴也可以直
-接看原博客，这是我接触动态规划以来看到的最好最好的一篇博客了，后面也会将它翻译过来。</p>
+</span></span></code></pre></div><p>完美，我们得到了最终的答案，同时你也会发现，这个等号右边的数列似乎有些眼熟，哈哈，是不是没有想到斐波那契数列居然和爬楼梯有点关系，那么如果你腿比较长，偶尔可以跨三级或者四级阶梯，你知道怎么计算了吗哈哈。</p>
+<p>好的第一部分就到此结束了，只是简单感受一下动态规划，接下来我会讲一下动态规划的系统性方法，其实这是翻译自博客<a href="https://betterprogramming.pub/a-systematic-approach-to-dynamic-programming-54902b6b0071" target="_blank">A Systematic Approach to Dynamic Programming</a>，感兴趣的小伙伴也可以直接看原博客，这是我接触动态规划以来看到的最好最好的一篇博客了，后面也会将它翻译过来。</p>
 <h1 id="动态规划的系统性方法">动态规划的系统性方法</h1>
+<p>本文中，我们将接触动态规划中两种非常重要的方法，第一种称之为<strong>Memoization</strong>，第二种则是<strong>Tabulation</strong>，说实话这两种方法很难直接翻译成中文，直译过来总感觉不是很表意，如果一定要翻译过来，我只能选用<strong>备忘录模式</strong>和<strong>表格填充算法</strong>两个名字，但是这仍然会让人根感觉怪怪的，不过，当我们真的了解了这两种方法或者技术之后，有可能会感觉有那么一点味道在里面了。</p>
+<p>现在的话我们还是先把这两个名词放在一边吧，其实我更加倾向于使用另外两个名字来称呼他们</p>
+<ul>
+<li>Memoization - 自顶向下的方法</li>
+<li>Tabulation - 自底向上的方法
+至于此处为什么是自顶向下又为什么是自底向上，待会儿我们就知道了，我们暂且也先把他们放在这里吧，让我们一步步探究这个然后最终我们会再回过头来看下这几个名字。</li>
+</ul>
+<h2 id="简介">简介</h2>
+<p>动态规划这个名词乍一看去可能会有点唬人，甚至很多人面对这样的名词会望而却步，害怕又是一种什么银样镴枪头亦或是有用但是晦涩难懂，不值得花时间去研究。</p>
+<p>甚至有人浅尝辄止，因为有的时候尝试去找一个状态迁移方程可能并没有那么容易，还有人甚至会用一些理由来避免使用<code>Tabulation</code>，比如性能已经可以了，再继续下去可能代码的可读性反而大大降低了，反而增加了一些成本。</p>
+<p>但是在我看来这些所谓<strong>Trade off</strong>远远阻挡不了一个对它感兴趣的人，的确，这种解决问题的技术会挑战我们的固有的依赖直觉的思考方式，大多数人前期很难快速的转变自己的思路来适应它，比如递归，回溯等等。但是动态规划在现实生活中又非常有用而且当一个面试官尝试评估候选人解决问题的技巧时动态规划也显得十分有吸引力以至于候选人不得不花时间了解这个，事实证明，抛开面试不谈这也是完全值得的。</p>
+<p>尝试用动态规划去解决一个问题时，整个过程是可以系统化地一步一步的向前推进的，我希望在这里向你分享这样一个我自己在使用动态规划解决问题时使用的一种系统化的过程，希望这对你学习动态规划以及后期使用动态规划产生一些帮助。</p>
+<p>我将首先介绍使用我自己在使用动态规划处理问题时所遵循的步骤。如果你对这些步骤里面的每一个条目都已经相当了解了，或许你会想要直接找一个问题然后尝试一下，看看究竟这种方法是如何工作的。如果你尚且不熟悉这些步骤里面描述的内容，我会向你详细解释每一个步骤具体是干什么还有为什么会被我放在这个位置。</p>
+<h2 id="使用动态规划解决问题的一般步骤">使用动态规划解决问题的一般步骤</h2>
+<p>首先，问你自己一个问题，我真的需要使用动态规划解决这个问题吗或者说我真的可以用动态规划解决这个问题吗。</p>
+<p>如果我们真的能够使用动态规划解决这个问题，那么针对我们需要解决的问题</p>
+<ul>
+<li>定义我们的状态</li>
+<li>定义我们的递归关系，或者说是状态迁移方程</li>
+<li>列出所有状态转换及其各自状态迁移的条件</li>
+<li>定义我们的基本情况</li>
+<li>实现一个朴素的递归解决方案</li>
+<li>使用自顶向下的方法（Memoization）对我们递归的解决方案进行优化</li>
+<li>使用自底向上的方法（Tabulation）消除递归的开销</li>
+</ul>
+<p>在我们开始按照这些步骤进一步探索之前，让我们先重申一下几个点</p>
+<ul>
+<li>第一，这一篇文章只是对动态规划所涵盖的主要概念的一些概括，你会在其他的一些博客或者课程里面看到针对动态规划更加准确详细严格的解释。</li>
+<li>第二，如果你尝试记住这篇文章里面出现的动态规划的解决方案或者尝试记住更多的动态规划解决方案对于你在未来解决其他的一些动态规划问题可能并没有什么帮助，学习如何一步步得到最终的解决方案才能从根本上理解并学会使用动态规划。</li>
+<li>第三，我不是一个动态规划的专家，本文中所涵盖的任何提示或者技巧性的内容只是我作为一个计算机专业的学生在学习动态规划的过程中发现的。</li>
+</ul>
+<h2 id="我可以使用动态规划解决这个问题吗">我可以使用动态规划解决这个问题吗</h2>
+<p>首先，让我们再尝试描述一下动态规划究竟是什么。简而言之，动态规划是一种解决复杂问题的技术，旨在通过首先解决这个复杂问题的子问题，解决子问题时，又可以使用同样的思路，首先解决这个子问题的子问题，如此循环往复达到最终解决整个复杂问题，这里需要声明的是每一个子问题，我们最多只会求解一次。</p>
+<p>动态规划被广泛用于解决与优化相关的问题。 判断您的问题是否适合使用动态规划去解决的一个技巧是找到暗示优化的关键字，例如最大、最小、最长或最短。</p>
+<p>一个问题是否能够使用动态规划进行解决通常取决于这个问题是否有一个计算最优解的结构以及重叠子问题。在一些学术文档中，你可能能够找到针对这些术语的更为准确详尽的解释，但是简而言之</p>
+<ul>
+<li>为了搞清楚一个问题是否是一个计算最优解的结构，首先你得问你自己，你能否用一种递归的关系来描述你的解决方案。如果可以，那么你就能将这个复杂问题转换为一堆更容易解决的子问题，当这些子问题被逐个解决之后，你便能够根据递归条件将你的子问题的结果进行聚合，得到最终的结果。比如前面提到的例子，斐波那契数列。</li>
+<li>为了搞清楚当前问题是否包含重叠子问题，也需要先问你自己，当你解决这个问题的时候，你有没有发现某一些子问题被你的程序重复解决了很多遍。比如当你尝试在大脑中进行斐波那契数列的计算时，第一次展开之后你就发现，你需要计算两次<code>f(8)</code>。这种就可以明确的回答出，你正在解决的这个问题包含重叠子问题。</li>
+</ul>
+<p>要点在于，如果你发现问题描述中提示你找到最优解，那么你就应该对你的问题进行评估，看这个问题是否有一个计算最优解的结构而且能不能找到重叠子问题，然后动态规划或许就是一个解决此问题的非常合适的方案。</p>
+<h2 id="递归和回溯非常重要">递归和回溯非常重要</h2>
+<p>在尝试用动态规划解决问题时，递归是一个非常基本的技术。在递归时，你有有一个函数，它会一层一层调用他自己直到遇到了这个问题的基本情况或者说终止条件，比如当我们计算斐波那契数列<code>f(3)</code>的结果时，我们就会遇到终止条件，因为<code>f(1) = 1;f(2) = 2</code>，这是我们很容易得到的答案。这些函数我们也就称之为递归函数。</p>
+<p>此外，回溯是一种使用递归来解穷举结果的技术。在这些问题中，我们必须对多种可能的结果进行评估才能够最终获得我们最优的解决方案，因为这些问题通常涉及选择的排列或组合，所以它们也被称为组合搜索问题。一个例子就是福尔摩斯最经典的语录，当我排除了所有可能性，剩下的那个就是最终的结果。在回溯中，当我们遇到了一个合理的或者不合理的结果又或者是终止条件，我们会将我们的递归流程回退一级，然后继续从其他可能的路径开始搜索，所以我们程这种方式为回溯。</p>
+<blockquote>
+<p>I’m Sherlock Holmes, the world’s only consulting detective.
+I’m not going to go into detail about how I do what I do because chances are you wouldn’t understand. If you’ve got a problem that you want me to solve, then contact me. Interesting cases only please.</p>
+<p>This is what I do:</p>
+<ol>
+<li>I observe everything.</li>
+<li>From what I observe, I deduce everything.</li>
+<li>When I’ve eliminated the impossible, whatever remains, no matter how mad it might seem, must be the truth.</li>
+</ol>
+<p>If you need assistance, contact me and we’ll discuss its potential.</p>
+</blockquote>
+<p>让我们看一个回溯的例子，求解一组数字所有可能的排列组合，为了便于理解，这里选择的最简单的一个版本，即这组数字每一个都是唯一的。代码摘自<a href="https://leetcode.com/problems/permutations/" target="_blank">Leet Code Permutations</a>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;&gt;</span> <span style="color:#a6e22e">subsets</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[]</span> nums<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;&gt;</span> list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">sort</span><span style="color:#f92672">(</span>nums<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        backtrack<span style="color:#f92672">(</span>list<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;(),</span> nums<span style="color:#f92672">,</span> 0<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> list<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">backtrack</span><span style="color:#f92672">(</span>List<span style="color:#f92672">&lt;</span>List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;&gt;</span> list <span style="color:#f92672">,</span> List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> tempList<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> <span style="color:#f92672">[]</span> nums<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> start<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;(</span>tempList<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> start<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> nums<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>    <span style="color:#75715e">//递归终止条件
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            tempList<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>nums<span style="color:#f92672">[</span>i<span style="color:#f92672">]);</span>    <span style="color:#75715e">//附加
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            backtrack<span style="color:#f92672">(</span>list<span style="color:#f92672">,</span> tempList<span style="color:#f92672">,</span> nums<span style="color:#f92672">,</span> i <span style="color:#f92672">+</span> 1<span style="color:#f92672">);</span>    <span style="color:#75715e">//递归
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            tempList<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>tempList<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">);</span>    <span style="color:#75715e">//清理
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>这个代码整体结构非常简单，可以看到我们什么时候将数字append到列表中，然后增加开始索引并开始新的递归，注意递归结束我们还需要对递归前append的数据进行清理，通常回溯都会有这么一个标志性的清理操作。同时循环的终止条件其实就是我们的基础场景也就是我们说的到达了递归终止条件。</p>
+<p>好了，花点时间联系递归和回溯吧，多加练习才能适应这种一个方法会调用他自己的实现方式。一旦你适应了这种实现方式，你的代码里面可能会充斥大量这种递归函数，那时候，你就有一个新的问题了。</p>
+<h2 id="动态规划的方法">动态规划的方法</h2>
+<p>正如前面提到的，动态规划的两个主要方式就是memoization（自顶向下的方式）和tabulation（自底向上的方式）。</p>
+<p>到目前为止，我们已经瞥见了递归和回溯在使用动态规划过程中的重要性，即将一个复杂问题拆分为这个问题更小的实例（这么说主要是为了说明复杂问题和拆分出来的子问题的相似性），也就是子问题。但是上面提到的解决方案，不论是斐波那契数列还是罗列一组不重复的数字所有可能的组合，我们都没有将其归类为动态规划的解决方案。</p>
+<p>对于一个朴素的递归解决方案，如果想要把它转换为一个称得上是动态规划的解决方案，我们还需要更进一步，对其进行优化，缓存每一个子问题的计算结果。再上面的定义中，重点是每个子问题我们只会解决它<strong>一次</strong>，此处的<strong>一次</strong>应该强调再强调。</p>
+<h3 id="memoization---自顶向下的方式">Memoization - 自顶向下的方式</h3>
+<p>Memoization等于递归加缓存。</p>
+<p>对一个值得使用动态规划进行解决的问题，一般它的结构表明它通常包含重叠子问题，还记得我们上面提到的斐波那契数列吗，让我们看下最简单的递归的代码实现，</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">fib</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> number<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>number <span style="color:#f92672">&lt;=</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> number<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> fib<span style="color:#f92672">(</span>number <span style="color:#f92672">-</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> fib<span style="color:#f92672">(</span>number <span style="color:#f92672">-</span> 2<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>如果我们把整个的递归树画出来，我们会得到</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<img title="image title" loading="lazy" decoding="async" class="img-fluid img-center" width="2798" height="1198" src="/images/dp/fibonacci-recursion-tree_hu4392296fa100cae420289eef93973751_102936_2798x1198_fill_q100_box_smart1_3.png" alt="alter-text" onerror="this.onerror='null';this.src='\/images\/dp\/fibonacci-recursion-tree_hu4392296fa100cae420289eef93973751_102936_2798x1198_fill_q100_box_smart1_3.png'">
+
+
+
+
+
+
+
+<p>注意每一个子问题我们重复解决了多少次，比如，<code>f(3)</code>计算了5次，然后每一个<code>f(3)</code>又会重复调用两次斐波那契函数，为了解决<code>f(3)</code>这个子问题我们多花了很多次函数调用。现在我们来看下动态规划，我们会尝试使用一个恰当的数据结构存储我们的计算结果，从而当晚些我们需要再次计算的时候可以直接返回这个结果，这样我们就做到了对所有子问题我们<strong>仅仅解决它一次</strong>，而这就是我们所说的Memoization。现在你大概能理解我为什么之前会把它翻译成备忘录模式了吧。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">fib</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> number<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//注意此处使用了Integer做缓存的key，由于Java Integer的缓存原因，只有在key值小于128时这段代码才能正确运行
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        Map<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span>Integer<span style="color:#f92672">&gt;</span> memoization <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> fib_helper<span style="color:#f92672">(</span>number<span style="color:#f92672">,</span> memoization<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">fib_helper</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> number<span style="color:#f92672">,</span> Map<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">,</span>Integer<span style="color:#f92672">&gt;</span> memoization<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>number <span style="color:#f92672">&lt;=</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> number<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> memoization<span style="color:#f92672">.</span><span style="color:#a6e22e">computeIfAbsent</span><span style="color:#f92672">(</span>number<span style="color:#f92672">,</span> fib<span style="color:#f92672">(</span>number <span style="color:#f92672">-</span> 1<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> fib<span style="color:#f92672">(</span>number <span style="color:#f92672">-</span> 2<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>上面这段代码将会是本文想要展示的两种动态规划方法中的比较简单的一种，很好理解。当你得到一个问题的递归形式的解决方案之后，确保你正确使用了缓存，来保证你的子问题不会被重复计算。</p>
+<p>其实再对比一下这两个实现方式，你就会发现其实这就是计算机编程里面老生常谈的一个问题&ndash;<strong>Trade off</strong>，我们在这里只不过是使用内存换时间而已。我们使用更多的内存空间存储了一些中间结果以此来达到更好的性能，这也是动态规划通常的工作方式。</p>
+<p>当然了，由于计算<code>f(n)</code>时，我们必须计算<code>f(1)</code>到<code>f(n - 1)</code>，所以此处我们将缓存换成一个长度为<code>n</code>的以为数组可能会更加高效。不过我们暂且先这样设计吧，之后做<code>Tabulation</code>时我们可以再进行下一步的优化，我们甚至不需要长度为<code>n</code>的一维数组，只需要常量的空间就足够了。</p>
+<p>有时候，使用Map或者一维数组等进行缓存可能不足以解决我们的问题，我们可能需要二维数组或者其他类型的数据结构。比如当我们解决经典的背包问题的时候，就可能需要一个二维数组。</p>
+<p><code>Memoization</code>很棒，我们既有使用递归解决问题的优雅，每个重叠子问题我们也只解决一次。但是，并非一切都那么好，我们仍在进行大量递归调用。递归在处理器时间和内存空间上都是昂贵的，而且大多数递归函数会随着完成任务所需的递归调用次数线性消耗调用堆栈内存。</p>
+<p>有一些特殊类型的递归函数，称为尾递归，如果优化正确，不一定会线性增加调用堆栈。这些可以在常量调用堆栈空间上执行。无需赘述，尾递归函数在其执行结束时执行递归调用，这意味着其堆栈帧此后将无用。可以重复使用相同的堆栈内存空间来保存下一次递归调用的状态 出现的问题是处理退货地址。我们希望确保在递归树结束后，您返回到开始一系列递归调用的指令。</p>
+<p>递归函数总是可能遇到潜在的堆栈溢出问题，比如Python默认允许的最大栈深度是1000，如果你尝试使用带有递归的Python方法来解决一个问题，该问题的调用栈超过1000次调用的递归深度，你就会得到一个堆栈溢出异常。</p>
+<h2 id="tabulation---自底向上的解决方法">Tabulation - 自底向上的解决方法</h2>
 <p>待翻译。。。</p>
 </div>
       </div>
@@ -559,7 +736,7 @@ Programming</a>，感兴趣的小伙伴也可以直
         "url": "images\/logo.png"
       }
     },
-    "datePublished": "2022-03-24"
+    "datePublished": "2022-03-25"
   }
 </script>
 
