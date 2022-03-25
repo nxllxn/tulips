@@ -478,8 +478,35 @@ F(n - 2)（n ≥ 2，n ∈ N*）</p>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">*</span> <span style="color:#e6db74">`f(10) = f(9) + f(8) = 89`</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">*</span> ...
 </span></span></code></pre></div><p>完美，我们得到了最终的答案，同时你也会发现，这个等号右边的数列似乎有些眼熟，哈哈，是不是没有想到斐波那契数列居然和爬楼梯有点关系，那么如果你腿比较长，偶尔可以跨三级或者四级阶梯，你知道怎么计算了吗哈哈。</p>
-<p>好的第一部分就到此结束了，只是简单感受一下动态规划，接下来我会讲一下动态规划的系统性方法，其实这是翻译自博客<a href="https://betterprogramming.pub/a-systematic-approach-to-dynamic-programming-54902b6b0071" target="_blank">A Systematic Approach to Dynamic Programming</a>，感兴趣的小伙伴也可以直接看原博客，这是我接触动态规划以来看到的最好最好的一篇博客了，后面也会将它翻译过来。</p>
-<h1 id="动态规划的系统性方法">动态规划的系统性方法</h1>
+<p>好的第一部分就到此结束了，只是简单感受一下动态规划，接下来我会讲一下动态规划的系统性方法，其实这是翻译自博客<a href="https://betterprogramming.pub/a-systematic-approach-to-dynamic-programming-54902b6b0071" target="_blank">A Systematic Approach to Dynamic Programming</a>
+，感兴趣的小伙伴也可以直接看原博客，这是我接触动态规划以来看到的最好最好的一篇博客了，后面也会将它翻译过来。</p>
+<h1 id="目录">目录</h1>
+<ul>
+<li><a href="#systematic-approach-to-dp">动态规划的系统性方法</a></li>
+<li><a href="#introduction">简介</a></li>
+<li><a href="#general-steps">使用动态规划解决问题的一般步骤</a></li>
+<li><a href="#can-dp-solve-this-problem">我可以使用动态规划解决这个问题吗</a></li>
+<li><a href="#recusive-and-backtracking">递归和回溯非常重要</a></li>
+<li><a href="#approaches">动态规划的方法</a>
+<ul>
+<li><a href="#momoization">Memoization - 自顶向下的方式</a></li>
+<li><a href="#tabulation">Tabulation - 自底向上的解决方法</a></li>
+</ul>
+</li>
+<li><a href="#knapsack-problem">背包问题</a>
+<ul>
+<li><a href="#can-dp-solve-knapsack-problem">我应该用动态规划解决背包问题吗</a></li>
+<li><a href="#step-one">第一步 - 定义状态</a></li>
+<li><a href="#step-two-and-three">第二步 / 第三步 - 定义递归关系并找到状态迁移方程</a></li>
+<li><a href="#step-four">第四步 - 定义基础场景</a></li>
+<li><a href="#step-five">第五步 - 实现一个朴素的递归解决方案</a></li>
+<li><a href="#step-six">第六步 - 使用缓存对递归解决方案进行优化（Memoization）</a></li>
+<li><a href="#step-seven">第七步 - 使用自底向上的方法消除额外的递归开销（Tabulation）</a></li>
+</ul>
+</li>
+<li><a href="#key-points">一些你需要记住的重点</a></li>
+</ul>
+<h1 id="动态规划的系统性方法-div-idsystematic-approach-to-dp-">动态规划的系统性方法 <div id="systematic-approach-to-dp" /></h1>
 <p>本文中，我们将接触动态规划中两种非常重要的方法，第一种称之为<strong>Memoization</strong>，第二种则是<strong>Tabulation</strong>，说实话这两种方法很难直接翻译成中文，直译过来总感觉不是很表意，如果一定要翻译过来，我只能选用<strong>备忘录模式</strong>和<strong>表格填充算法</strong>两个名字，但是这仍然会让人根感觉怪怪的，不过，当我们真的了解了这两种方法或者技术之后，有可能会感觉有那么一点味道在里面了。</p>
 <p>现在的话我们还是先把这两个名词放在一边吧，其实我更加倾向于使用另外两个名字来称呼他们</p>
 <ul>
@@ -487,13 +514,13 @@ F(n - 2)（n ≥ 2，n ∈ N*）</p>
 <li>Tabulation - 自底向上的方法
 至于此处为什么是自顶向下又为什么是自底向上，待会儿我们就知道了，我们暂且也先把他们放在这里吧，让我们一步步探究这个然后最终我们会再回过头来看下这几个名字。</li>
 </ul>
-<h2 id="简介">简介</h2>
+<h2 id="简介-div-idintroduction-">简介 <div id="introduction" /></h2>
 <p>动态规划这个名词乍一看去可能会有点唬人，甚至很多人面对这样的名词会望而却步，害怕又是一种什么银样镴枪头亦或是有用但是晦涩难懂，不值得花时间去研究。</p>
 <p>甚至有人浅尝辄止，因为有的时候尝试去找一个状态迁移方程可能并没有那么容易，还有人甚至会用一些理由来避免使用<code>Tabulation</code>，比如性能已经可以了，再继续下去可能代码的可读性反而大大降低了，反而增加了一些成本。</p>
 <p>但是在我看来这些所谓<strong>Trade off</strong>远远阻挡不了一个对它感兴趣的人，的确，这种解决问题的技术会挑战我们的固有的依赖直觉的思考方式，大多数人前期很难快速的转变自己的思路来适应它，比如递归，回溯等等。但是动态规划在现实生活中又非常有用而且当一个面试官尝试评估候选人解决问题的技巧时动态规划也显得十分有吸引力以至于候选人不得不花时间了解这个，事实证明，抛开面试不谈这也是完全值得的。</p>
 <p>尝试用动态规划去解决一个问题时，整个过程是可以系统化地一步一步的向前推进的，我希望在这里向你分享这样一个我自己在使用动态规划解决问题时使用的一种系统化的过程，希望这对你学习动态规划以及后期使用动态规划产生一些帮助。</p>
 <p>我将首先介绍使用我自己在使用动态规划处理问题时所遵循的步骤。如果你对这些步骤里面的每一个条目都已经相当了解了，或许你会想要直接找一个问题然后尝试一下，看看究竟这种方法是如何工作的。如果你尚且不熟悉这些步骤里面描述的内容，我会向你详细解释每一个步骤具体是干什么还有为什么会被我放在这个位置。</p>
-<h2 id="使用动态规划解决问题的一般步骤">使用动态规划解决问题的一般步骤</h2>
+<h2 id="使用动态规划解决问题的一般步骤-div-idgeneral-steps-">使用动态规划解决问题的一般步骤 <div id="general-steps" /></h2>
 <p>首先，问你自己一个问题，我真的需要使用动态规划解决这个问题吗或者说我真的可以用动态规划解决这个问题吗。</p>
 <p>如果我们真的能够使用动态规划解决这个问题，那么针对我们需要解决的问题</p>
 <ul>
@@ -511,7 +538,7 @@ F(n - 2)（n ≥ 2，n ∈ N*）</p>
 <li>第二，如果你尝试记住这篇文章里面出现的动态规划的解决方案或者尝试记住更多的动态规划解决方案对于你在未来解决其他的一些动态规划问题可能并没有什么帮助，学习如何一步步得到最终的解决方案才能从根本上理解并学会使用动态规划。</li>
 <li>第三，我不是一个动态规划的专家，本文中所涵盖的任何提示或者技巧性的内容只是我作为一个计算机专业的学生在学习动态规划的过程中发现的。</li>
 </ul>
-<h2 id="我可以使用动态规划解决这个问题吗">我可以使用动态规划解决这个问题吗</h2>
+<h2 id="我可以使用动态规划解决这个问题吗-div-idcan-dp-solve-this-problem-">我可以使用动态规划解决这个问题吗 <div id="can-dp-solve-this-problem" /></h2>
 <p>首先，让我们再尝试描述一下动态规划究竟是什么。简而言之，动态规划是一种解决复杂问题的技术，旨在通过首先解决这个复杂问题的子问题，解决子问题时，又可以使用同样的思路，首先解决这个子问题的子问题，如此循环往复达到最终解决整个复杂问题，这里需要声明的是每一个子问题，我们最多只会求解一次。</p>
 <p>动态规划被广泛用于解决与优化相关的问题。 判断您的问题是否适合使用动态规划去解决的一个技巧是找到暗示优化的关键字，例如最大、最小、最长或最短。</p>
 <p>一个问题是否能够使用动态规划进行解决通常取决于这个问题是否有一个计算最优解的结构以及重叠子问题。在一些学术文档中，你可能能够找到针对这些术语的更为准确详尽的解释，但是简而言之</p>
@@ -520,7 +547,7 @@ F(n - 2)（n ≥ 2，n ∈ N*）</p>
 <li>为了搞清楚当前问题是否包含重叠子问题，也需要先问你自己，当你解决这个问题的时候，你有没有发现某一些子问题被你的程序重复解决了很多遍。比如当你尝试在大脑中进行斐波那契数列的计算时，第一次展开之后你就发现，你需要计算两次<code>f(8)</code>。这种就可以明确的回答出，你正在解决的这个问题包含重叠子问题。</li>
 </ul>
 <p>要点在于，如果你发现问题描述中提示你找到最优解，那么你就应该对你的问题进行评估，看这个问题是否有一个计算最优解的结构而且能不能找到重叠子问题，然后动态规划或许就是一个解决此问题的非常合适的方案。</p>
-<h2 id="递归和回溯非常重要">递归和回溯非常重要</h2>
+<h2 id="递归和回溯非常重要-div-idrecusive-and-backtracking-">递归和回溯非常重要 <div id="recusive-and-backtracking" /></h2>
 <p>在尝试用动态规划解决问题时，递归是一个非常基本的技术。在递归时，你有有一个函数，它会一层一层调用他自己直到遇到了这个问题的基本情况或者说终止条件，比如当我们计算斐波那契数列<code>f(3)</code>的结果时，我们就会遇到终止条件，因为<code>f(1) = 1;f(2) = 2</code>，这是我们很容易得到的答案。这些函数我们也就称之为递归函数。</p>
 <p>此外，回溯是一种使用递归来解穷举结果的技术。在这些问题中，我们必须对多种可能的结果进行评估才能够最终获得我们最优的解决方案，因为这些问题通常涉及选择的排列或组合，所以它们也被称为组合搜索问题。一个例子就是福尔摩斯最经典的语录，当我排除了所有可能性，剩下的那个就是最终的结果。在回溯中，当我们遇到了一个合理的或者不合理的结果又或者是终止条件，我们会将我们的递归流程回退一级，然后继续从其他可能的路径开始搜索，所以我们程这种方式为回溯。</p>
 <blockquote>
@@ -554,11 +581,11 @@ I’m not going to go into detail about how I do what I do because chances are y
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>这个代码整体结构非常简单，可以看到我们什么时候将数字append到列表中，然后增加开始索引并开始新的递归，注意递归结束我们还需要对递归前append的数据进行清理，通常回溯都会有这么一个标志性的清理操作。同时循环的终止条件其实就是我们的基础场景也就是我们说的到达了递归终止条件。</p>
 <p>好了，花点时间联系递归和回溯吧，多加练习才能适应这种一个方法会调用他自己的实现方式。一旦你适应了这种实现方式，你的代码里面可能会充斥大量这种递归函数，那时候，你就有一个新的问题了。</p>
-<h2 id="动态规划的方法">动态规划的方法</h2>
+<h2 id="动态规划的方法-div-idapproaches-">动态规划的方法 <div id="approaches" /></h2>
 <p>正如前面提到的，动态规划的两个主要方式就是memoization（自顶向下的方式）和tabulation（自底向上的方式）。</p>
 <p>到目前为止，我们已经瞥见了递归和回溯在使用动态规划过程中的重要性，即将一个复杂问题拆分为这个问题更小的实例（这么说主要是为了说明复杂问题和拆分出来的子问题的相似性），也就是子问题。但是上面提到的解决方案，不论是斐波那契数列还是罗列一组不重复的数字所有可能的组合，我们都没有将其归类为动态规划的解决方案。</p>
 <p>对于一个朴素的递归解决方案，如果想要把它转换为一个称得上是动态规划的解决方案，我们还需要更进一步，对其进行优化，缓存每一个子问题的计算结果。再上面的定义中，重点是每个子问题我们只会解决它<strong>一次</strong>，此处的<strong>一次</strong>应该强调再强调。</p>
-<h3 id="memoization---自顶向下的方式">Memoization - 自顶向下的方式</h3>
+<h3 id="memoization---自顶向下的方式-div-idmomoization-">Memoization - 自顶向下的方式 <div id="momoization" /></h3>
 <p>Memoization等于递归加缓存。</p>
 <p>对一个值得使用动态规划进行解决的问题，一般它的结构表明它通常包含重叠子问题，还记得我们上面提到的斐波那契数列吗，让我们看下最简单的递归的代码实现，</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> 
@@ -676,8 +703,210 @@ I’m not going to go into detail about how I do what I do because chances are y
 <p><code>Memoization</code>很棒，我们既有使用递归解决问题的优雅，每个重叠子问题我们也只解决一次。但是，并非一切都那么好，我们仍在进行大量递归调用。递归在处理器时间和内存空间上都是昂贵的，而且大多数递归函数会随着完成任务所需的递归调用次数线性消耗调用堆栈内存。</p>
 <p>有一些特殊类型的递归函数，称为尾递归，如果优化正确，不一定会线性增加调用堆栈。这些可以在常量调用堆栈空间上执行。无需赘述，尾递归函数在其执行结束时执行递归调用，这意味着其堆栈帧此后将无用。可以重复使用相同的堆栈内存空间来保存下一次递归调用的状态 出现的问题是处理退货地址。我们希望确保在递归树结束后，您返回到开始一系列递归调用的指令。</p>
 <p>递归函数总是可能遇到潜在的堆栈溢出问题，比如Python默认允许的最大栈深度是1000，如果你尝试使用带有递归的Python方法来解决一个问题，该问题的调用栈超过1000次调用的递归深度，你就会得到一个堆栈溢出异常。</p>
-<h2 id="tabulation---自底向上的解决方法">Tabulation - 自底向上的解决方法</h2>
-<p>待翻译。。。</p>
+<h3 id="tabulation---自底向上的解决方法-div-idtabulation-">Tabulation - 自底向上的解决方法 <div id="tabulation" /></h3>
+<p>接下来我们再看下<code>Tabulation</code>，不同于<code>Memoization</code>，<code>Tabulation</code>致力使用另一种方式解决这个问题而且完完全全的放弃使用使用递归。不再使用递归同时也意味着我们不需要再担心方法栈溢出的问题了，而且我们也节省了递归函数调用导致的很多额外的性能开销。</p>
+<p>在使用<code>Tabulation</code>（我们有时也称为表格填充方法）进行动态规划时，我们解决所有的子问题并且将它们的结果存储在一个矩阵中。然后这些结果稍后会被使用以解决更大的子问题，如此往复直到我们解决最终的问题。也因为如此，<code>Tabulation</code>也被冠以另外一个名字，就是我们前面提到的，自底向上的方法，就是因为它是从递归树的底部或者说叶子节点开始然后一步一步的往上走直到到达根节点。</p>
+<p>与基于递归和缓存的<code>Memoization</code>解决方案相比，似乎<code>Tabulation</code>更加有点违反直觉，但是当我们考虑到大量递归调用而导致的栈内存空间线性增加的情况时，<code>Tabulation</code>的优势就体现出来了，<code>Tabulation</code>在时间复杂度和空间复杂度方面相比<code>Memoization</code>要更加的高效。时间复杂度体现在方法调用的减少，空间复杂度则体现在相比于使用字典缓存中间结果，一个矩阵可能更加高效，甚至我们还可以将一个矩阵优化成常量的空间，我们后面可以看到。</p>
+<p>如果你回头看下我们前面提到的动态规划的步骤，你会发现<code>Tabulation</code>是整个系统化方法的最后一步，这也是因为我们会更容易得到一个<code>Tabulation</code>的解决方案通过先使用递归或者回溯解决这个问题然后使用<code>Memoization</code>缓存技术对这个粗糙的递归解决方案进行优化，然后如果可能的话我们会再做一些<strong>调整</strong>来得到一个自底向上的解决方案。晚点你会看到几个相关的技巧，现在让我们先看下究竟<code>Tabulation</code>是怎么工作的吧。</p>
+<p>我们刚开始的时候后我们提过一个名词，状态，但是我们之后没有给它一个正式的定义也没有再继续讨论在动态规划中究竟什么是状态。在我看来，状态其实就是哪些影响着每一次递归调用的输出结果的入参。同时，两个不同的状态通常也意味着两个不同的调用，又或者说是两个不同的子问题。明确了每一个状态之间的区别，我们才能知道在导向最终结果之前我们可能有哪些选择然后如何从其中全出一个最优解。在本文的结尾，我们将会联系一下如何去定义一个状态。</p>
+<p>因为<code>Tabulation</code>是一个自底向上的方法，所以我们必须先解决一个更大问题所依赖的所有子问题。如果我们不解决较小的的问题，那么我们就无从向前推进然后解决更大的问题。在<code>Tabulation</code>中我们通常会使用迭代而不是递归。那么我们应该从哪里开始又在那里结束呢，为了回答这个问题，让我们先看看下面这个递归关系。</p>
+<p>假定我们有一个函数，我们用它来求解某一个最优解问题，为了方便起见我们称这个函数为<code>Opt</code>, 我们假设这个问题中，我们的问题<code>Opt(n)</code>简单依赖于子问题<code>Opt(n - 1)</code>。</p>
+<p>这个递归关系告诉你的是，如果你不知道<code>Opt(n - 1)</code>的结果那么你无从得知<code>Opt(n)</code>的结果。这也意味着我们只能从最小值开始，比如0，然后一步一步解决每一个子问题知道我们计算出<code>Opt(n)</code>的结果。</p>
+<p>那么一个技巧就是，如果你的递归关系中展示你的状态在减少，那么你的循环条件也应该增加这样你就开始计算一个大问题依赖的更小的问题，这也就是自底向上。</p>
+<p>当我们尝试应用这些策略导一个实际的问题中去的时候，这些概念就会变得更加清晰，你猜怎么，我们结下来就会这么做。</p>
+<h2 id="背包问题-div-idknapsack-problem-">背包问题 <div id="knapsack-problem" /></h2>
+<p>我们现在就开始尝试应用我们的动态规划的系统化方法来解决这个著名的<strong>零一背包问题</strong>。我们的任务是，给定一个固定容量的背包以及一堆宝石，每一件宝石有特定的价值以及一个重量，我们想要从中挑选一堆最有价值的宝石带回家，不过我们有一个条件，那就是我们的背包容量是有限的。简而言之，给定<code>n</code>件宝石，它们的价值和重量分别是<code>[v0,v2,v3,…,v(n-1)]</code>，<code>[w0,w1,w2,…w(n-1)]</code>，此外还有一个容量限制<code>W</code>，现在我们需要计算出我们怎么样才能使用有限容量的背包将最有价值的宝石搬回家。</p>
+<h3 id="我应该用动态规划解决背包问题吗-div-idcan-dp-solve-knapsack-problem-">我应该用动态规划解决背包问题吗 <div id="can-dp-solve-knapsack-problem" /></h3>
+<p>你注意到了吗，这个问题让我们基于特定的条件求解一个最大可能的结果。我已经嗅到了一丝求解最优解的味道，但是它真的具有最优解结构吗？</p>
+<p>是的，给定宝石<code>[0, n - 1]</code>，他们对应的价值<code>[v0, …,v(n-1)]</code>，对应的重量<code>[w0, …, w(n-1)]</code>以及总重量限制<code>W</code>。这个问题的解决方案可以分解为，对于任意宝石<code>x</code>，我可以选择拿或者不拿，如果拿了这颗宝石，我能够获取的价值就是这颗宝石的价值而且剩余的总重量限制就不得不减去当前宝石的重量；如果我不拿这颗宝石，我能够获取的价值和剩余的容量就不必发生变化，我就有更多的空间可以容纳其它的宝石了；此外不论我拿不拿这颗宝石，对于剩余的宝石，我都可以使用同样的思路继续下去。最终整个问题会因为宝石所有宝石被遍历完或者总容量被用完而终止。每遇到一颗宝石，我们的问题就会被拆分为两个子问题，而我们则根据最终要求，对两个子问题进行聚合，在这里其实就是每一次都取价值较大的那个子问题的结果。</p>
+<p>我知道这一段话太啰嗦了，或许一些数学公式能够更加清楚的定义这些递归关系以及这种状态转换。</p>
+<h3 id="第一步---定义状态-div-idstep-one-">第一步 - 定义状态 <div id="step-one" /></h3>
+<p>那么是哪些参数会影响递归调用的结果呢，在这个问题里面，我们有两个因素会影响，那就是剩余可用的容量以及我是否会将当前这个宝石收入囊中。所以递归调用的状态将由剩余容量以及每一个时刻我们是否会将一个索引位置的宝石收入囊中。</p>
+<h3 id="第二步--第三步---定义递归关系并找到状态迁移方程-div-idstep-two-and-three-">第二步 &amp; 第三步 - 定义递归关系并找到状态迁移方程 <div id="step-two-and-three" /></h3>
+<p>我们会将需要去优化的一个函数定义为<code>KS(W, i)</code>，具体含义是，这个函数应该给我们一个当前正对第<code>[0, i]</code>个编号的宝石我们能够获取的最大可能的价值以及剩余的可用的容量。</p>
+<p>每遇到一个宝石，我们都有两种可能的选择，要或者不要。如果要，我们会对我们的状态产生影响，我们剩余可用容量会减少；此外不论要或者不要，剩余可以收入囊中的宝石也会减少一个。此外我们还需要判断这个宝石我们的剩余空间能否容纳。当我们把所有信息放到一起并尝试用数学的方式将它表示出来的时候：</p>
+<ul>
+<li><code>KS(W, i) = MAX( val[i] + KS(W- w[i], i-1), KS(W, i-1)) if W ≥ w[i]</code></li>
+<li><code>KS(W, i) = KS(W, i-1) else</code></li>
+</ul>
+<h3 id="第四步---定义基础场景-div-idstep-four-">第四步 - 定义基础场景 <div id="step-four" /></h3>
+<p>我们什么时候应该停止呢？一个终止条件是我们没有可用空间了<code>(W == 0)</code>，另一个终止条件是我们已经考虑过了所有的宝石<code>(i == -1)</code>，当我们满足这两个终止条件之后，我们不可能获得更多的价值了。所以终止条件就是：</p>
+<ul>
+<li><code>return 0 if W == 0 or i== -1</code></li>
+</ul>
+<h3 id="第五步---实现一个朴素的递归解决方案-div-idstep-five-">第五步 - 实现一个朴素的递归解决方案 <div id="step-five" /></h3>
+<p>我们已经有了实现递归解决方案所需要的所有信息，我们有递归关系，我们已经定义好了状态迁移方程，我们也找到了基础场景或者说终止条件。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> items <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[][]{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>5<span style="color:#f92672">,</span> 5<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>2<span style="color:#f92672">,</span> 3<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>5<span style="color:#f92672">,</span> 10<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">};</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>ks<span style="color:#f92672">(</span>items<span style="color:#f92672">,</span> items<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">,</span> 12<span style="color:#f92672">));</span>    <span style="color:#75715e">//24 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>count<span style="color:#f92672">);</span>    <span style="color:#75715e">//3405
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">ks</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> items<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> index<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> capacity<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        count <span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>capacity <span style="color:#f92672">==</span> 0 <span style="color:#f92672">||</span> index <span style="color:#f92672">==</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> takeIt <span style="color:#f92672">=</span> capacity <span style="color:#f92672">&gt;=</span> items<span style="color:#f92672">[</span>index<span style="color:#f92672">][</span>0<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">?</span> ks<span style="color:#f92672">(</span>items<span style="color:#f92672">,</span> index <span style="color:#f92672">-</span> 1<span style="color:#f92672">,</span> capacity <span style="color:#f92672">-</span> items<span style="color:#f92672">[</span>index<span style="color:#f92672">][</span>0<span style="color:#f92672">])</span> <span style="color:#f92672">+</span> items<span style="color:#f92672">[</span>index<span style="color:#f92672">][</span>1<span style="color:#f92672">]</span> <span style="color:#f92672">:</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> notTakeIt <span style="color:#f92672">=</span> ks<span style="color:#f92672">(</span>items<span style="color:#f92672">,</span> index <span style="color:#f92672">-</span> 1<span style="color:#f92672">,</span> capacity<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">(</span>takeIt<span style="color:#f92672">,</span> notTakeIt<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="第六步---使用缓存对递归解决方案进行优化memoization-div-idstep-six-">第六步 - 使用缓存对递归解决方案进行优化（Memoization） <div id="step-six" /></h3>
+<p>根据我以往的经验，如果不先过一遍一个问题的递归的解决方案，又时候很难看出来一个问题是否有重叠子问题。我们可以运行几遍代码或者简单的在纸上画一画递归调用的序列，让我们更新我们的代码来缓存我们子问题的中间结果。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> items <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[][]{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>5<span style="color:#f92672">,</span> 5<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>2<span style="color:#f92672">,</span> 3<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>5<span style="color:#f92672">,</span> 10<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">};</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> capacity <span style="color:#f92672">=</span> 12<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> memo <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>capacity <span style="color:#f92672">+</span> 1<span style="color:#f92672">][</span>items<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>ks<span style="color:#f92672">(</span>items<span style="color:#f92672">,</span> items<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">-</span> 1<span style="color:#f92672">,</span> capacity<span style="color:#f92672">,</span> memo<span style="color:#f92672">));</span>    <span style="color:#75715e">//24
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>count<span style="color:#f92672">);</span>    <span style="color:#75715e">//193
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">ks</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> items<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> index<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> capacity<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> memo<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        count<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>capacity <span style="color:#f92672">==</span> 0 <span style="color:#f92672">||</span> index <span style="color:#f92672">==</span> <span style="color:#f92672">-</span>1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>memo<span style="color:#f92672">[</span>capacity<span style="color:#f92672">][</span>index<span style="color:#f92672">]</span> <span style="color:#f92672">!=</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> memo<span style="color:#f92672">[</span>capacity<span style="color:#f92672">][</span>index<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> takeIt <span style="color:#f92672">=</span> capacity <span style="color:#f92672">&gt;=</span> items<span style="color:#f92672">[</span>index<span style="color:#f92672">][</span>0<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">?</span> ks<span style="color:#f92672">(</span>items<span style="color:#f92672">,</span> index <span style="color:#f92672">-</span> 1<span style="color:#f92672">,</span> capacity <span style="color:#f92672">-</span> items<span style="color:#f92672">[</span>index<span style="color:#f92672">][</span>0<span style="color:#f92672">],</span> memo<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> items<span style="color:#f92672">[</span>index<span style="color:#f92672">][</span>1<span style="color:#f92672">]</span> <span style="color:#f92672">:</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> notTakeIt <span style="color:#f92672">=</span> ks<span style="color:#f92672">(</span>items<span style="color:#f92672">,</span> index <span style="color:#f92672">-</span> 1<span style="color:#f92672">,</span> capacity<span style="color:#f92672">,</span> memo<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        memo<span style="color:#f92672">[</span>capacity<span style="color:#f92672">][</span>index<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">(</span>takeIt<span style="color:#f92672">,</span> notTakeIt<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> memo<span style="color:#f92672">[</span>capacity<span style="color:#f92672">][</span>index<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>对比上一种方式你就会发现递归的可怕之处，在使用Memoization之前，我们的方法调用次数达到惊人的3405次，而引入缓存之后，方法调用只有仅仅193次。</p>
+<h3 id="第七步---使用自底向上的方法消除额外的递归开销tabulation-div-idstep-seven-">第七步 - 使用自底向上的方法消除额外的递归开销（Tabulation） <div id="step-seven" /></h3>
+<p>向我们之前讨论的，当我们走到这一步，我们很容易将我们的实现优化为一个表格填充的解决方案。我们只需要调整很少的代码。</p>
+<div class="notices note" ><p>我同意作者的观点，事实上，这一步是动态规划中最难的部分，我们需要转变我们的思路，抛弃我们的直觉，转而使用其他的一些数据结构和思维模式才能进入另一番天地。</p></div>
+<p>让我们我们调整一下我们的状态迁移方程，调整之前：</p>
+<ul>
+<li><code>KS(W, i) = MAX(val[i] + KS(W-w[i], i-1), KS(W,i-1)) if W ≥ w[i]</code></li>
+<li><code>KS(W, i) = KS(W, i-1) else</code></li>
+</ul>
+<p>调整之后：</p>
+<ul>
+<li><code>KS[W][i] = MAX(val[i] + KS[W-w[i]][i-1], KS[W][i-1]) if W ≥ w[i]</code></li>
+<li><code>KS[W][i] = KS[W][i-1] else</code></li>
+</ul>
+<p>我们将我们的递归关系调整成了类似矩阵运算因为Tabulation的核心就是填充矩阵。记住两个在Tabulation中的关键点。</p>
+<ul>
+<li>对每一个状态，我们进行一次迭代。</li>
+<li>如果你的状态值减少你的循环条件就会增加，反之亦然。</li>
+</ul>
+<p>在这个例子中，我们有两个状态，在递归关系中他们的值都会减少，所以调整后的代码将会是：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution1</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> count <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> items <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[][]{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>5<span style="color:#f92672">,</span> 5<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>2<span style="color:#f92672">,</span> 3<span style="color:#f92672">},</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">{</span>5<span style="color:#f92672">,</span> 10<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">};</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> capacity <span style="color:#f92672">=</span> 12<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>ks<span style="color:#f92672">(</span>items<span style="color:#f92672">,</span> capacity<span style="color:#f92672">));</span>   <span style="color:#75715e">//24
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>count<span style="color:#f92672">);</span>    <span style="color:#75715e">//1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">ks</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> items<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> capacity<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        count<span style="color:#f92672">++;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//其实一般情况下我们会有特殊的处理，当可用的容量为空时，或者全部items都被用完时，我们能够继续得到的价值就是0，
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">//也就是ks[0][*]和ks[*][0]被初始化为0是有特殊含义的，其实也就是前面的终止条件或者说基础情况
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">int</span><span style="color:#f92672">[][]</span> ks <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>capacity <span style="color:#f92672">+</span> 1<span style="color:#f92672">][</span>items<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> capacity <span style="color:#f92672">+</span> 1<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span> j <span style="color:#f92672">&lt;</span> items<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">+</span> 1<span style="color:#f92672">;</span> j<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">int</span> takeIt <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>i <span style="color:#f92672">&gt;=</span> items<span style="color:#f92672">[</span>j <span style="color:#f92672">-</span> 1<span style="color:#f92672">][</span>0<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                    takeIt <span style="color:#f92672">=</span> items<span style="color:#f92672">[</span>j <span style="color:#f92672">-</span> 1<span style="color:#f92672">][</span>1<span style="color:#f92672">]</span> <span style="color:#f92672">+</span> ks<span style="color:#f92672">[</span>i <span style="color:#f92672">-</span> items<span style="color:#f92672">[</span>j <span style="color:#f92672">-</span> 1<span style="color:#f92672">][</span>0<span style="color:#f92672">]][</span>j <span style="color:#f92672">-</span> 1<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">int</span> notTakeIt <span style="color:#f92672">=</span> ks<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j <span style="color:#f92672">-</span> 1<span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                ks<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">(</span>takeIt<span style="color:#f92672">,</span> notTakeIt<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ks<span style="color:#f92672">[</span>capacity<span style="color:#f92672">][</span>items<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">];</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>注意我们改了什么内容：</p>
+<p>你的函数不再是递归的了，我们不需要传递修改后的状态，KS现在收到容量限制和宝石的列表并返回最优结果，在这种情况下，我们可以说KS现在是纯函数式的。</p>
+<p>注意上面的注释部分，在我们的制表方法中，基本情况被硬编码到矩阵中，有时这需要我们考虑添加虚拟行/列。如果您看到i的基本情况，它是 index==-1，但是，在矩阵上，我们不能有负索引。为了解决这个问题，我们进行了索引移位。以前是(index==-1)现在是(index==0)所以我们将在那里存储基本情况的值。</p>
+<p>让我们花点时间进一步分析索引移位，因为这是一种非常常见的做法。我们的递归关系显示：</p>
+<ul>
+<li><code>KS[W][i] = MAX(val[i] + KS[W-w[i]][i-1], KS[W][i-1]) if W ≥ w[i]</code></li>
+<li><code>KS[W][i] = KS[W][i-1] else</code></li>
+</ul>
+<p>注意<code>[i-1]</code>,如果我们从i = 0开始循环，这将导致越界异常，但是我们说i = 0和W = 0是我们的基本情况，没有理由计算它们，所以让我们从1开始。但是，我们需要修改引用<code>val[i]</code>和<code>w[i]</code>的方式，因为现在(i = 1)应该映射到第一个元素（位于位置0的元素），每当我们想要索引输入集合中的元素时，我们只需使用(i-1)来平衡索引移动的影响。</p>
+<p>请注意，唯一的主要变化是删除了用于递归的<code>return</code>语句，并将我们所有的递归符号更改为矩阵形式。我们将状态转换的相同逻辑包装在我们很容易知道如何生成的循环中。我们的函数中只剩下一个return语句，它为我们提供了原始问题的最终结果。这就对了！</p>
+<h2 id="一些你需要记住的重点-div-idkey-points-">一些你需要记住的重点 <div id="key-points" /></h2>
+<p>这篇文章的确涵盖了很多的信息，尤其是最后一步的背包问题。让我们强调一下这里面最重要的一些细节：</p>
+<ul>
+<li>动态规划是一种解决问题的技术，它倾向于通过先解决一个问题的更小的子问题有且仅有一次来达到最终解决一整个复杂问题的目的。</li>
+<li>哪些适合使用动态规划进行解决的问题一般拥有最优解结构以及重叠子问题。</li>
+<li>动态规划的两个主要方法就是自顶向下的方法（Memoization）和自底向上的方法（Tabulation）。</li>
+<li>Memoization等价于递归加缓存。</li>
+<li>递归在处理器执行时间和内存空间两个方面来说其代价都可能是很昂贵的。</li>
+<li>在Tabulation方法中，即列表填充方法中，我们先解决所有子问题并且将结果存储在一个矩阵中，然后我们会再继续尝试解决更大的依赖于现有子问题结果的问题。</li>
+<li>练习，练习，练习。</li>
+</ul>
+<p>感谢阅读。</p>
 </div>
       </div>
     </article>
