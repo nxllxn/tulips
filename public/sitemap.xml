@@ -2,28 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.tlst.cc/post/</loc>
+    <lastmod>2022-03-28T19:06:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/categories/</loc>
+    <lastmod>2022-03-28T19:06:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/tags/concurrent-programing/</loc>
+    <lastmod>2022-03-28T19:06:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/categories/concurrent-programing/</loc>
+    <lastmod>2022-03-28T19:06:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/tags/java/</loc>
+    <lastmod>2022-03-28T19:06:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/categories/java/</loc>
+    <lastmod>2022-03-28T19:06:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/tags/</loc>
+    <lastmod>2022-03-28T19:06:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/</loc>
+    <lastmod>2022-03-28T19:06:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/post/java-concurrent-programming-01/</loc>
+    <lastmod>2022-03-28T19:06:33+08:00</lastmod>
+  </url><url>
     <loc>https://www.tlst.cc/tags/algorithm/</loc>
     <lastmod>2022-03-25T20:29:33+08:00</lastmod>
   </url><url>
     <loc>https://www.tlst.cc/categories/algorithms/</loc>
     <lastmod>2022-03-25T20:29:33+08:00</lastmod>
   </url><url>
-    <loc>https://www.tlst.cc/post/</loc>
-    <lastmod>2022-03-25T20:29:33+08:00</lastmod>
-  </url><url>
-    <loc>https://www.tlst.cc/categories/</loc>
-    <lastmod>2022-03-25T20:29:33+08:00</lastmod>
-  </url><url>
     <loc>https://www.tlst.cc/tags/dp/</loc>
     <lastmod>2022-03-25T20:29:33+08:00</lastmod>
   </url><url>
     <loc>https://www.tlst.cc/tags/dynamic-programming/</loc>
-    <lastmod>2022-03-25T20:29:33+08:00</lastmod>
-  </url><url>
-    <loc>https://www.tlst.cc/tags/</loc>
-    <lastmod>2022-03-25T20:29:33+08:00</lastmod>
-  </url><url>
-    <loc>https://www.tlst.cc/</loc>
     <lastmod>2022-03-25T20:29:33+08:00</lastmod>
   </url><url>
     <loc>https://www.tlst.cc/categories/tutorials/</loc>

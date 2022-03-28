@@ -422,6 +422,66 @@
               
               
               <picture>
+                <source srcset="/images/java-concurrent-programing/challenges/thumb_hu52d922f08eb8074328849650ddc4504d_195923_400x0_resize_q90_h2_box.webp" media="(max-width: 575px)">
+                <source srcset="/images/java-concurrent-programing/challenges/thumb_hu52d922f08eb8074328849650ddc4504d_195923_540x0_resize_q90_h2_box.webp" media="(max-width: 767px)">
+                <source srcset="/images/java-concurrent-programing/challenges/thumb_hu52d922f08eb8074328849650ddc4504d_195923_710x0_resize_q90_h2_box.webp" media="(max-width: 991px)">
+                <source srcset="/images/java-concurrent-programing/challenges/thumb_hu52d922f08eb8074328849650ddc4504d_195923_750x0_resize_q90_h2_box.webp" media="(max-width: 1200px)">
+                <source srcset="/images/java-concurrent-programing/challenges/thumb_hu52d922f08eb8074328849650ddc4504d_195923_750x0_resize_q90_h2_box.webp">
+                <img loading="lazy" class="img-fluid w-100" src="/images/java-concurrent-programing/challenges/thumb_hu52d922f08eb8074328849650ddc4504d_195923_750x0_resize_q90_h2_box.webp" alt="post-thumb" width="1382" height="628">
+              </picture>
+              
+              
+            </div>
+          </div>
+          
+          
+          <div class="col-12 mx-auto">
+            <h3><a class="post-title" href="/post/java-concurrent-programming-01/">并发编程的挑战</a></h3>
+            <ul class="list-inline post-meta mb-4">
+              <li class="list-inline-item"><i class="fas fa-user mr-2"></i><a
+                  href="/author/%E9%83%81%E9%87%91%E9%A6%99%E5%95%8A/">郁金香啊</a></li>
+              <li class="list-inline-item">日期 : March 28, 2022</li>
+              <li class="list-inline-item">分类 :
+                <a
+                  href="/categories/java" class="ml-1">Java </a>
+                ,<a
+                  href="/categories/concurrent-programing" class="ml-1">Concurrent programing </a>
+                </li>
+              <li class="list-inline-item">标签 : <a
+                  href="/tags/java" class="ml-1">Java </a> ,<a
+                  href="/tags/concurrent-programing" class="ml-1">Concurrent programing </a> 
+              </li>
+            </ul>
+            <p>在讨论并发编程的挑战之前，我想要先和大家一起回顾下并发和并行的概念，这两个概念从字面上看上去其实非常的相似，很容易搞混。
+首先两者中都有一个并字，我们姑且先讲并翻译为同时。
+如此一来，那么并发也就是同时发生，其实更加准确一点来说应该称之为同时发生一样，什么意思呢，在单核处理器时代，分时系统通过将同一个CPU核心的执行时间进行分片，然后将时间片依次分给多个执行单元，然后在用户的感知层面达到一种每一个执行单元都在同时发生一样，比如多个应用程序同时为我们的用户提供服务。
+而并行则是一个相对来说更晚一些的概念，当摩尔定律慢慢走向终结，CPU的生产厂商无法在单个的芯片上放置更多的晶体管后，他们开始转变思路，不再致力于如何在芯片上放更多的晶体管，而是为一台计算机配置更多的核心来达到同样的目的，当计算机拥有更多核心之后，我们用另外一种方式更加高效的利用计算机的算力，那就是并行。
+在此之前，我们同一时间最多只能有一个执行单元被执行，其实换句话说同一时间只会有一个线程在执行，也只有一个进程在执行，即使这个进程被拆分为多个线程。但是在拥有多核的构造之后，我们不光能够继续拥有并发带给我们的好处，此外我们甚至能让同一进程的多个可执行单元，也就是多个线程在分别在多个核心上执行。总而言之，并发就是多个执行单元在同一个核心上交替执行，并行则是多个执行单元在多个核心的每一个核心上并发。
+我们通过一张图片看下两者的区别，Erlang发明者Joe Armstrong通过一个咖啡机的例子生动的向大家解释了并行和并发之间的区别。
+目录  并发编程的挑战  上下文切换  多线程一定快吗 我们如何减少上下文切换呢   死锁  如何避免死锁   资源限制  什么是资源限制 资源限制带来的问题 如何解决资源限制问题 在资源限制的基础上进行并发编程      并发编程的挑战  前面我们简单讲了一下并发是什么。的确，并发的目的就是为了让我们的程序运行的更快，但是并不是启动的线程越多我们的程序执行的就越快，并发时，多个可执行单元之间进行切换时会有性能开销，多个线程访问一些临界资源时也会有各种竞争条件，此外我们还会受限于硬件和软件的资源限制。
+上下文切换  我们先考虑单核的情况，当我们在单核上执行多线程时，CPU通过给每个线程分配CPU时间片实现这个机制。时间片是CPU分给各个线程的执行时间，它通常比较短，比如几十毫秒，然后CPU通过不停的切换线程执行，让用户感觉多个线程是在同时执行的。
+CPU的确通过时间片分配算法来实现了循环执行任务，当前任务执行一个时间片之后会切换到下一个任务，但是在切换之前，我们需要保存上一个任务的执行状态，只有这样，当下一次切换回这个任务时，我们才能够重新加载这个任务的状态并继续执行。而这个保存任务状态然后再加载并执行的过程就是上下文切换。
+就比如我们在和一个人聊天的时候，突然另一个电话打进来了，我们可能需要先和当前这位聊天的小伙伴说一声抱歉，然后记住你们目前讨论的问题是什么，然后转而先去接这个临时打进来的电话，等这个电话结束，我们可能会再找到之前聊天的那个小伙伴，继续之前讨论的话题。显然，这样的切换是会影响到你们沟通的效率的，你应该经常问道或者听别人问道过，&ldquo;诶，我们刚刚讲到哪儿了？&quot;，同理，这样的上下文切换也会影响多线程的执行速度。
+多线程一定快吗  事实上，当我们的计算量小于某一个量级时，拆分更多的线程可能最终的效率还不如让整个计算过程串行执行。因为频繁的上下文切换反而浪费了更多时间，这些时间最终随着线程数的增加反而超过了多核并行计算带来的收益。我们后面也会讲到，如何基于IO密集型还是CPU密集型的处理流程来设置恰当的线程数量来保证我们的程序有更好的性能。
+我们如何减少上下文切换呢  减少上下文切换的方式有很多，比如适当控制线程数量，使用CAS算法，无锁并发编程以及协程等。
+ 控制线程数量 - 避免创建大量不需要的线程，比如整个任务是CPU密集型的，明明CPU已经满负荷运行了，已经以最大的计算能力处理我们的数据了，此时我们创建过多的线程，可能会适得其反，因为这时候CPU不光要忙着计算最终的结果，还需要频繁的进行上下文切换，反而拖慢了整体的效率。 CAS算法 - 全称是Compare And Swap，使用CAS算法时，我们不会尝试去获取锁，线程也就不会阻塞，也意味着我们不会失去对CPU的使用权，那么我们也就不需要进行上下文切换了。 无锁并发编程 - 多线程竞争锁时，会引起上下文切换，所以如果我们能够使用一些办法来避免使用锁或者避免锁竞争的话，就可以避免切换。比如Java 5引入的ConcurrentMap的概念以及其实现ConcurrentHashMap，就可以通过使用分段锁来提高并发度，从而避免大量的锁竞争。 协程 - 在单线程中实现多任务的调度，并在单线程里维持多个任务的切换。  死锁  当我们面对并发编程时可能遇到的竞争条件时，我们有时需要使用锁来对资源的访问进行控制，否则我们程序的执行结果就可能是错误的，花费了大量的算力最终得到的却是一个没有意义的结果。</p>
+            <a href="/post/java-concurrent-programming-01/" class="btn btn-outline-primary">继续阅读</a>
+          </div>
+        </article>
+        
+        <article class="row mb-5">
+          
+          <div class="col-12">
+            <div class="post-slider mb-4">
+              
+              
+              
+              
+              
+              
+              
+              
+              <picture>
                 <source srcset="/images/dp/dp_hu3cc0698070fd18165717cc5d118ae043_76179_400x0_resize_q90_h2_box.webp" media="(max-width: 575px)">
                 <source srcset="/images/dp/dp_hu3cc0698070fd18165717cc5d118ae043_76179_540x0_resize_q90_h2_box.webp" media="(max-width: 767px)">
                 <source srcset="/images/dp/dp_hu3cc0698070fd18165717cc5d118ae043_76179_710x0_resize_q90_h2_box.webp" media="(max-width: 991px)">
@@ -601,6 +661,10 @@ Life is a series of natural and spontaneous …</span>
   <ul class="list-unstyled widget-list">
     <li><a href="/categories/algorithms" class="d-flex">Algorithms
         <small class="ml-auto">(1)</small></a></li>
+    <li><a href="/categories/concurrent-programing" class="d-flex">Concurrent programing
+        <small class="ml-auto">(1)</small></a></li>
+    <li><a href="/categories/java" class="d-flex">Java
+        <small class="ml-auto">(1)</small></a></li>
     <li><a href="/categories/tutorials" class="d-flex">Tutorials
         <small class="ml-auto">(2)</small></a></li>
   </ul>
@@ -609,6 +673,25 @@ Life is a series of natural and spontaneous …</span>
   <h5 class="widget-title"><span>最近文章</span></h5>
   <!-- post-item -->
   <ul class="list-unstyled widget-list mb-0">
+  
+    <li class="media widget-post align-items-center">
+      <a href="https://www.tlst.cc/post/java-concurrent-programming-01/">        
+        
+        
+        
+        
+        
+        
+        <img loading="lazy" class="mr-3" src="https://www.tlst.cc/images/java-concurrent-programing/challenges/thumb_hu52d922f08eb8074328849650ddc4504d_195923_60x60_fill_q90_h2_box_center.webp" alt="post-thumb">
+        
+        
+        
+      </a>
+      <div class="media-body">
+        <h5 class="h6 mb-0"><a href="https://www.tlst.cc/post/java-concurrent-programming-01/">并发编程的挑战</a></h5>
+        <small>March 28, 2022</small>
+      </div>
+    </li>
   
     <li class="media widget-post align-items-center">
       <a href="https://www.tlst.cc/post/system-approach-to-dp/">        
@@ -654,10 +737,12 @@ Life is a series of natural and spontaneous …</span>
   <h5 class="widget-title"><span>标签</span></h5>
   <ul class="list-inline widget-list-inline">
     <li class="list-inline-item"><a href="/tags/algorithm">Algorithm</a></li>
+    <li class="list-inline-item"><a href="/tags/concurrent-programing">Concurrent programing</a></li>
     <li class="list-inline-item"><a href="/tags/dp">Dp</a></li>
     <li class="list-inline-item"><a href="/tags/dynamic-programming">Dynamic programming</a></li>
     <li class="list-inline-item"><a href="/tags/go">Go</a></li>
     <li class="list-inline-item"><a href="/tags/hugo">Hugo</a></li>
+    <li class="list-inline-item"><a href="/tags/java">Java</a></li>
     <li class="list-inline-item"><a href="/tags/logbook">Logbook</a></li>
     <li class="list-inline-item"><a href="/tags/%e5%8a%a8%e6%80%81%e8%a7%84%e5%88%92">动态规划</a></li>
     <li class="list-inline-item"><a href="/tags/%e7%ae%97%e6%b3%95">算法</a></li>
