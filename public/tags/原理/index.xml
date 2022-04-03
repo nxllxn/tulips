@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>原理 on Tulips</title>
+    <link>https://www.tlst.cc/tags/%E5%8E%9F%E7%90%86/</link>
+    <description>Recent content in 原理 on Tulips</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright @ 2022 郁金香啊</copyright>
+    <lastBuildDate>Wed, 30 Mar 2022 12:44:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/tags/%E5%8E%9F%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java并发机制的底层实现原理</title>
+      <link>https://www.tlst.cc/post/java-concurrent-programming-03/</link>
+      <pubDate>Wed, 30 Mar 2022 12:44:33 +0800</pubDate>
+      
+      <guid>https://www.tlst.cc/post/java-concurrent-programming-03/</guid>
+      <description>无规矩不成方圆，为了获得并发编程带来的好处，我们需要定义一套严谨的控制机制。只有在这套机制的控制下，JVM才能够按照预期执行我们的字节码，只有了解这套机制，我们才能够编写出正确的代码得到正确的结果。
+目录 Java并发机制的底层实现原理 Java为了方便编程人员进行实现，其暴露了很多的关键字以及Api，比如synchronized，volatile以及各种Lock。我们很容易使用这些关键字以及Api实现出一些线程安全的代码，但是我们不能止步于此，要知道在软件开发的世界里，你可以在各种各样的地方找到一些Trade off的完美诠释，同样在并发编程时，相对简单的一个实现方式通常意味着你可能牺牲了一些性能，换句话说，再花同样的时间你可能能够做的更好，在保证线程安全的情况下还能够让你的程序仍然高效的执行。。所以让我们一起看下这些特性如何使用以及其背后的原理吧。
+第一个关键字 - volatile volatile，这个单词直接翻译过来是易挥发的，比如酒精，汽油等物质的挥发性。在计算机相关的属于里面，或者说是在Java语言里面，通常我们会将其翻译成易失的。我猜之所以使用这个单词是因为所有被volatile关键字标注的变量其引用的内存区域需要保证一种可见性，而JVM通过一种机制总是将最新的内容写到主存中并且也总是从主存中读取数据来实现这个，所以对于工作内存中的值，其总是很容易miss，所以才有了这么一个定义。
+这一段话里面可能涉及了很多的概念，其中非常重要的有Java内存模型相关的内容，其会在后面的文章中被覆盖到，如果暂时不清楚的话可以先跳到内存模型相关的文章中了解对应的内容。
+待补充</description>
+    </item>
+    
+  </channel>
+</rss>
