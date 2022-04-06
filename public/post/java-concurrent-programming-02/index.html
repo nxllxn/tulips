@@ -451,9 +451,16 @@ Trade off**的影子了吧，哈哈。</p>
 off</strong>策略得以游走的空间。我们从金字塔的最底部慢慢向上攀爬探索：</p>
 <ul>
 <li></li>
-<li></li>
+</ul>
+<p>越过磁盘，首先我们可能接触的内存，虽然断电后数据就会丢失，但是其访问速度相较于磁盘已经有了质的提升，当然了，相对于磁盘，其价格更高，容量也要小很多，在1TB的固态硬盘充斥在人们的生活中时，我们通常可以操作的内存空间一般只有8G，16G等；很多的操作系统也通过虚拟内存突破了物理内存的限制，所以一般16G的内存对于绝大多数人来说都已经足够了。</p>
+<ul>
 <li></li>
 </ul>
+<p>我们继续向上攀爬，此时我们会遇到称为高速缓存的东西，一般有两级，我们称之为二级缓存和以一级缓存，实际上我们的CPU尝试加载数据时，并不会直接和我们的内存打交道，我们首先会将需要访问的内存连同周边临近的内存区域先加载到二级缓存中，然后再加载一部分到一级缓存中。现在当CPU尝试去加载数据的时候，花在IO上的时间就很短了。</p>
+<ul>
+<li></li>
+</ul>
+<p>然后就是寄存器了，如果你写过汇编或者有看过反编译后的Java的字节码指令，你可能会看到，我们是如何精细地一个一个存储单元的进行访问和管理的。空间很小，但是因为他们是最接近CPU的位置，它们的存在让我们的指令序列得以流畅的执行，而不必每次都花费大量时间等待IO。</p>
 <p>Java作为一门编程语言以及一个平台，其底层实现的时候，其实也逃不掉这些模式的束缚。只不过我们上面讨论的是硬件资源上的一些<strong>Trade off</strong>，Java内存模型是在这个基础之上又进行了一层抽象，但是其内在原理还是相通的。</p>
 <p>本系列文章在编写时大量参考了《Java并发编程艺术》一书，原书将Java内存模型放在第三章，将Java语言中的一些特性以及实现原理，比如synchronized，volatile等关键字放在第二章。当我在准备第二篇文章的时候，老师感觉写起来不是很顺畅，因为里面有很多的概念其实是依赖于Java内存模型中的很多内容的。所以就调整了一下顺序，将JMM提到前面来写一下。</p>
 <h1 id="目录">目录</h1>
@@ -589,7 +596,9 @@ illegal）。</p>
 </span></span></code></pre></div><p>flag是一个标志，用来标识变量a是否已经被写入。这里假设有两个线程A和B，A首先执行write方法，随后线程B接着执行reader方法，线程B在执行操作4时，能否看到线程A在操作1对变量A的写入呢。答案是不一定。</p>
 <p>由于操作1和操作2没有数据依赖关系，编译器和处理器你可以对这两个操作重排序。同理，操作3和操作4也没有数据依赖关系（有控制依赖但是没有数据依赖，编译器处理器为了提高并行度会采用猜测执行），编译器和处理器也可以对这两个操作机械能重排序。</p>
 <p>当操作1和操作2重排序时，假定我们的执行顺序是2-&gt;3-&gt;4-&gt;1，第四步我们读取的a并不是写入后的a而是初始值0，多线程的语义被重排序破坏掉了。
-当操作3和操作4重排序时，操作3和操作4寸控制依赖关系，有控制依赖但是没有数据依赖时会影响指令序列的执行并行度，编译器处理器为了提高并行度会采用猜测执行来克服控制相关性对并行度的影响，已处理器猜测执行为例，执行线程B的处理器可以提前读取a并执行第四步的计算，然后将结果存储在一个重排序缓冲（Reorder Buffer，ROB）的硬件缓存中，当第三步的条件判断为真的时候，就把缓冲区中的计算结果写入结果变量中。也就是执行顺序实际上等价于4-&gt;1-&gt;2-&gt;3。在我们进行if条件判断之前，前读取a完成了第四步的计算，最终结果仍然是0，多线程的语义再次被重排序破坏掉了。</p>
+当操作3和操作4重排序时，操作3和操作4寸控制依赖关系，有控制依赖但是没有数据依赖时会影响指令序列的执行并行度，编译器处理器为了提高并行度会采用猜测执行来克服控制相关性对并行度的影响，已处理器猜测执行为例，执行线程B的处理器可以提前读取a并执行第四步的计算，然后将结果存储在一个重排序缓冲（Reorder
+Buffer，ROB）的硬件缓存中，当第三步的条件判断为真的时候，就把缓冲区中的计算结果写入结果变量中。也就是执行顺序实际上等价于4-&gt;1-&gt;2-&gt;
+3。在我们进行if条件判断之前，前读取a完成了第四步的计算，最终结果仍然是0，多线程的语义再次被重排序破坏掉了。</p>
 <p>在单线程中，对存在空盒子依赖的操作重排序并不会改变执行结果，这也是为什么as-if-serial语义允许对存在控制依赖的操作做重排序。但是在多线程程序中，对存在控制依赖的操作重排序，可能会改变程序的执行结果。</p>
 <h3 id="顺序一致性">顺序一致性</h3>
 <p>顺序一致性内存模型是一个理论参考模型，在设计的时候后，处理器的内存模型和编程语言的内存的模型都会一顺序一致性的内存模型作为参照。</p>
@@ -608,8 +617,10 @@ illegal）。</p>
 <li>不管程序是否同步，所有线程都只能看到一个单一的操作执行顺序，在顺序一致性内存模型中，每个操作都必须原子执行且立刻对所有线程可见。</li>
 </ul>
 <p>再概念上，顺序一致性模型有一个单一的全局内存，这个内存通过一个左右摆动的开关来实现在任何一个时刻仅连接到任意一个线程，同时，每一个线程必须按照程序的顺序来执行内存读写操作，那么也意味着在任意时间点最多只能有一个线程可以来接到内存，这样一来，所有线程的所有内存读写操作就被串行化了，在顺序一致性模型中，所有操作之间存在全序关系。</p>
-<p>这只是一个理论模型，它非常简单，最容易理解，但是记得我们之前说的<strong>Trade off</strong>吗，这里其实又有提现。一个模型或者一种机制约简单，理解起来就越简单，但是同事其效率和可用性可能就越低。反过来说，一个模型或者说一个机制设计的越复杂，考虑的越多，其实效率和可用性可能就会越高，但是理解和最终实现起来肯定会花费更多的时间。我们不可能将内存模型设计成这样，那样我们的程序运行起来可能像乌龟在地上爬一样。本文开头讲的存储空间金字塔的概念就是通过一些相对复杂的机制，在既能获得最高性能的同时又保证了存储空间控制在一个合理的价格范围之内。</p>
-<p>假定我们两个线程A，B，每个线程分别执行三个操作A1-&gt;A2-&gt;A3和B1-&gt;B2-&gt;B3。当我们依赖于监视器锁对程序进行同步时我们的执行顺序可能是A1-&gt;A2-&gt;A3-&gt;B1-&gt;B2-&gt;B3，当我们没有同步时，执行顺序可能是A1-&gt;B1-&gt;B2-&gt;B3-&gt;A2-&gt;A3，所有线程都能够看到一个一致的整体执行顺序，之所以有这个保证是因为顺序一致性模型中的每个操作立即对任意线程可见。</p>
+<p>这只是一个理论模型，它非常简单，最容易理解，但是记得我们之前说的<strong>Trade off</strong>
+吗，这里其实又有提现。一个模型或者一种机制约简单，理解起来就越简单，但是同事其效率和可用性可能就越低。反过来说，一个模型或者说一个机制设计的越复杂，考虑的越多，其实效率和可用性可能就会越高，但是理解和最终实现起来肯定会花费更多的时间。我们不可能将内存模型设计成这样，那样我们的程序运行起来可能像乌龟在地上爬一样。本文开头讲的存储空间金字塔的概念就是通过一些相对复杂的机制，在既能获得最高性能的同时又保证了存储空间控制在一个合理的价格范围之内。</p>
+<p>假定我们两个线程A，B，每个线程分别执行三个操作A1-&gt;A2-&gt;A3和B1-&gt;B2-&gt;B3。当我们依赖于监视器锁对程序进行同步时我们的执行顺序可能是A1-&gt;A2-&gt;A3-&gt;B1-&gt;B2-&gt;B3，当我们没有同步时，执行顺序可能是A1-&gt;
+B1-&gt;B2-&gt;B3-&gt;A2-&gt;A3，所有线程都能够看到一个一致的整体执行顺序，之所以有这个保证是因为顺序一致性模型中的每个操作立即对任意线程可见。</p>
 <p>但是顺序一致性内存模型只是一个理论上的模型，在实际的Java内存模型中就没有和这个保证。未同步的程序在Java内存模型中不但招人那个题的执行顺序是无序的，而且所有线程可能看到的操作执行顺序也可能不一致。因为写缓冲区的关系，当前线程执行了写操作，但是数据并没有刷新到主存，这个写操作对当前线程可见，但是对其他线程是不可见的，其它线程会认为当前线程并没有做什么写入操作。只有当前线程将数据刷新到主存中时，这个写操作才能对其他线程可见。此时每个线程看到的总体的执行顺序就不是一致的。</p>
 <h4 id="同步程序的顺序一致性效果">同步程序的顺序一致性效果</h4>
 <p>那么我们怎么在实际的内存模型中获得同理论的顺序一致性模型中一样的顺序一致性呢，答案就是同步，让我们看下使用监视器锁对示例代码进行同步之后的代码</p>
@@ -703,7 +714,177 @@ illegal）。</p>
 <div class="notices info" ><p>为了提供一种比锁更轻量级的线程之间通信的机制，JSR-133增强了volatile的内存语义，严格限制编译器和处理器对volatile变量与普通变量的重排序,确保volatile的写-读和锁的释放获取具有相同的内存语义。</p></div>
 <p>volatile仅仅保证对单个volatile变量的读写具有原子性，而锁的互斥执行的特性可以确保对整个临界区代码的执行具有原子性。在功能上，锁比volatile更强大，在可伸缩性和执行性能上，volatile更有优势。</p>
 <h3 id="锁的内存语义">锁的内存语义</h3>
-<p>待更新</p>
+<p>锁是Java并发编程中最重要的同步机制，锁除了让临界区互斥执行外，还可以让释放锁的线程向获取同一个锁的线程发送消息。</p>
+<h4 id="锁的释放与获取">锁的释放与获取</h4>
+<p>当线程释放锁时，Java内存模型会把该线程对应的本地内存中的共享变量刷新到主内存中。</p>
+<p>当线程获取锁时，Java内存模型会把该线程对应的本地内存置为无效。从而使得被监视器保护的临界区代码必须从主存中读取共享变量。</p>
+<p>对比锁回获取-释放的内存语义与volatile读-写的内存语义可以看出，锁获取与volatile读有相同的内存语义，锁释放与volatile写有相同的内存语义。</p>
+<p>总而言之：</p>
+<ul>
+<li>线程A释放一个锁，实质上是线程A向接下来将要获取这个锁的某个线程发出了（线程A对共享变量所做修改）的消息</li>
+<li>线程B获取一个锁，实质上是线程B接收了之前某个线程发出的（在释放这个锁之前对共享变量所做修改）的消息</li>
+<li>线程A释放锁，随后线程B获取锁，这个过程实质上是线程A通过主存想线程B发送消息。</li>
+</ul>
+<h4 id="锁内存语义的实现">锁内存语义的实现</h4>
+<p>让我们看看下面这一段代码</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.concurrent.locks.ReentrantLock<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> a <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">volatile</span> <span style="color:#66d9ef">boolean</span> flag <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ReentrantLock lock <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ReentrantLock<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">write</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            lock<span style="color:#f92672">.</span><span style="color:#a6e22e">lock</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            a <span style="color:#f92672">=</span> 1<span style="color:#f92672">;</span>    <span style="color:#75715e">// 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">finally</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            lock<span style="color:#f92672">.</span><span style="color:#a6e22e">unlock</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">read</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            lock<span style="color:#f92672">.</span><span style="color:#a6e22e">lock</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> a<span style="color:#f92672">;</span>    <span style="color:#75715e">// 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">finally</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            lock<span style="color:#f92672">.</span><span style="color:#a6e22e">unlock</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>此处我们使用了一个ReentrantLock可重入锁实现来对我们的代码做了同步控制。我们调用lock方法获取锁，调用unlock方法释放锁。</p>
+<p>ReentrantLock的实现依赖于Java同步器框架AbstractQueuedSynchronizer，以下简称AQS。AQS使用一个名为state的整型volatile变量来维护同步状态。这个volatile变量是ReentrantLock内存语义实现的关键。</p>
+<h4 id="reentrantlock---公平锁">ReentrantLock - 公平锁</h4>
+<p>当使用公平锁时，整个加锁过程如下</p>
+<ul>
+<li>&ndash;&gt; ReentrantLock:lock()
+<ul>
+<li>&ndash;&gt; FairSync:lock()
+<ul>
+<li>&ndash;&gt; AbstractQueuedSynchronizer:acquire(int args)
+<ul>
+<li>&ndash;&gt; ReentrantLock:tryAcquire(int acquires)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>第四步真正开始加锁</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ReentrantLock</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">tryAcquire</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> acquires<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">final</span> Thread current <span style="color:#f92672">=</span> Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> getState<span style="color:#f92672">();</span> <span style="color:#75715e">// 获取锁的开始，首先读volatile变量state 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>c <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>isFirst<span style="color:#f92672">(</span>current<span style="color:#f92672">)</span> <span style="color:#f92672">&amp;&amp;</span> compareAndSetState<span style="color:#f92672">(</span>0<span style="color:#f92672">,</span> acquires<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                setExclusiveOwnerThread<span style="color:#f92672">(</span>current<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>current <span style="color:#f92672">==</span> getExclusiveOwnerThread<span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> nextc <span style="color:#f92672">=</span> c <span style="color:#f92672">+</span> acquires<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>nextc <span style="color:#f92672">&lt;</span> 0<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Maximum lock count exceeded&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            setState<span style="color:#f92672">(</span>nextc<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>从源代码中可以看出，加锁方法先读取state的值</p>
+<ul>
+<li>如果state值为0，说明这个锁没有被获取过，然后使用compareAndSet操作将这个值加上需要获取的数量，如果set成功那么加锁成功，那么加锁成功，设置当前线程为锁的拥有者并返回成功。</li>
+<li></li>
+</ul>
+<p>如果state值不为0，说明这个锁目前已经被线程持有，此时我们对比持有锁的线程和当前线程是不是同一个线程，如果不是，那么加锁失败，如果是，在未超过加锁上限Integer.MAX_VALUE的情况下，同一个线程可以再次加锁成功，这也就是**
+可重入**的概念。</p>
+<p>当使用公平锁时，整个解锁过程如下</p>
+<ul>
+<li>&ndash;&gt; ReentrantLock:unlock()
+<ul>
+<li>&ndash;&gt; AbstractQueuedSynchronizer:release(int arg)
+<ul>
+<li>&ndash;&gt; Sync:tryRelease(int releases)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>在第三步真正开始释放锁，下面是该方法的源代码</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Sync</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">tryRelease</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> releases<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> getState<span style="color:#f92672">()</span> <span style="color:#f92672">-</span> releases<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">()</span> <span style="color:#f92672">!=</span> getExclusiveOwnerThread<span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IllegalMonitorStateException<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">boolean</span> free <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>c <span style="color:#f92672">==</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            free <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>            setExclusiveOwnerThread<span style="color:#f92672">(</span><span style="color:#66d9ef">null</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        setState<span style="color:#f92672">(</span>c<span style="color:#f92672">);</span> <span style="color:#75715e">// 释放锁的最后，写volatile变量state 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> free<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>可以看出，在释放锁时，我们先判断当前线程是不是这个锁的拥有者，如果不是，无权进行锁释放，如果是，那么我们将需要释放的数量从state上减去。如果state数量不为零，此时意味着当前锁被当前线程多次重入，需要继续进行锁释放；如果state数量为零，说明当前锁已经被完全释放。</p>
+<p>需要注意的是，公平锁在释放锁的最后写volatile变量，在获取锁时首先读和这个volatile变量。根据volatile的happens-before规则，释放锁的线程在写volatile变量之前可见的共享变量，在获取锁的线程读取同一个volatile变量后将立即变得对获取锁的线程可见。</p>
+<h4 id="reentrantlock---非公平锁">ReentrantLock - 非公平锁</h4>
+<p>非公平锁的释放和公平锁完全一样，所以这里仅仅分析非公平锁的获取，使用非公平锁时，加锁过程如下</p>
+<ul>
+<li>&ndash;&gt; ReentrantLock:lock()
+<ul>
+<li>&ndash;&gt; NonfairSync:lock()
+<ul>
+<li>&ndash;&gt; AbstractQueuedSynchronizer:compareAndSetState(int args)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>在第三步真正开始加锁，让我们看看源代码</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AbstractQueuedSynchronizer</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">compareAndSetState</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> expect<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> update<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> unsafe<span style="color:#f92672">.</span><span style="color:#a6e22e">compareAndSwapInt</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">,</span> stateOffset<span style="color:#f92672">,</span> expect<span style="color:#f92672">,</span> update<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>该方法以原子操作的方式更新state变量，本文把Java的compareAndSet方法调用简称为CAS。CAS方法的作用是，如果当前状态值等于预期值，则以原子方式将同步状态设置为给定的更新值。此操作具有volatile读和写的内存语义。</p>
+<p>让我们从编译器和处理器的角度来分析，CAS如何同时具有volatile读和volatile写的内存语义。</p>
+<p>前文我们提到过，编译器不会对volatile读与volatile读之后的任意内存操作重排序；编译器不会对volatile写与volatile写前面的任意内存操作重排序。组合这两个条件，意味着为了同时实现volatile读和volatile写的内存语义，编译器不能对CAS与CAS前面和后面的任意内存操作重排序。</p>
+<p>让我们看一下Intel x86处理器上的源代码实现</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>inline jint Atomic::cmpxchg (jint exchange_value, volatile jint* dest, jint compare_value) { 
+</span></span><span style="display:flex;"><span>    // alternative for InterlockedCompareExchange 
+</span></span><span style="display:flex;"><span>    int mp = os::is_MP(); 
+</span></span><span style="display:flex;"><span>    __asm { 
+</span></span><span style="display:flex;"><span>        mov edx, dest 
+</span></span><span style="display:flex;"><span>        mov ecx, exchange_value 
+</span></span><span style="display:flex;"><span>        mov eax, compare_value 
+</span></span><span style="display:flex;"><span>        LOCK_IF_MP(mp) 
+</span></span><span style="display:flex;"><span>        cmpxchg dword ptr [edx], ecx 
+</span></span><span style="display:flex;"><span>    } 
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>我们看<code>LOCK_IF_MP</code>，MP是指Multiple Processor，表示是否是多处理器，如果是多处理器，程序会为<code>cmpxchg</code>指令加上lock前缀，在Pentium以及之前的处理器中，其会花费昂贵的代价锁定总线，以保证只有当前处理器能够读写主存；如果程序是在单处理器上运行，那就省略lock前缀（单处理器或维护处理器内的顺序一致性）。</p>
+<p>intel的手册对lock前缀的说明如下</p>
+<ul>
+<li>确保对内存的读-改-写操作原子执行</li>
+<li>禁止该指令与之前和之后的读写指令重排序</li>
+<li>把写缓冲区中的所有数据刷新的内存中</li>
+</ul>
+<p>这里的第二点和第三点足以同时实现volatile读和volatile写的内存语义。</p>
+<p>总结</p>
+<ul>
+<li>公平锁和非公平锁释放时，最后都要写一个volatile变量state</li>
+<li>公平锁获取是首先会去读volatile变量</li>
+<li>非公平锁获取时，首先会使用CAS更新volatile变量，这个操作同时具有volatile读和volatile写的内存语义。</li>
+</ul>
+<p>锁释放-获取的内存语义的实现至少有两种方式。利用volatile变量的写-读所具有的内存语义；利用CAS所附带的volatile读和写的内存语义。</p>
+<h2 id="concurrent包的实现">Concurrent包的实现</h2>
 </div>
       </div>
     </article>
