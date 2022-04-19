@@ -1,19 +1,6 @@
----
-title: "Two Sum"
-date: 2022-04-19T12:44:33+08:00
-# post thumb
-images:
-- "images/leetcode/1-two-sum.png"
-#author
-author: "郁金香啊"
-# description
-description: "Two sum"
-# Taxonomies
-categories: ["LeetCode","算法"]
-tags: ["Java","LeetCode","算法","简单难度"]
-type: "regular"
-draft: false
----
+
+
+
 
 # Two Sum
 ## 概述
