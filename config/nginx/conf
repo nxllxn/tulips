@@ -50,7 +50,7 @@ http {
         }
 
         location /colorful {
-            rewrite ^/colorful$ post/colorful;
+            rewrite ^/colorful$ post/colorful.html;
         }
 
         location ~ \.(?:jpg|jpeg|gif|png|ico|cur|gz|svg|mp4|ogg|ogv|webm|htc|webp)$ {
