@@ -7,14 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright @ 2022 郁金香啊</copyright>
-    <lastBuildDate>Tue, 19 Apr 2022 12:44:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Apr 2022 17:44:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Add Two Number</title>
+      <link>https://www.tlst.cc/post/leetcode-2-add-two-number/</link>
+      <pubDate>Tue, 19 Apr 2022 17:44:33 +0800</pubDate>
+      
+      <guid>https://www.tlst.cc/post/leetcode-2-add-two-number/</guid>
+      <description>给定两个非空的链表，分别代表两个非负整数，链表的每一个节点代表整数的一位数字，数字是按照倒序存储的。请对这两个数字进行求和，并将结果按照同样的格式进行返回。
+此处我们假定，这两个数字不包含任何前置0，当然了除了数字0本身。
+Add Two Number 示例 示例 1:
+输入: l1 = [2,4,3], l2 = [5,6,4] 输出: [7,0,8] 解释: 342 + 465 = 807. 示例 2:
+输入: l1 = [0], l2 = [0] 输出: [0] 示例 3:
+输入: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9] 输出: [8,9,9,9,0,0,0,1] Constraints:
+ 每一个数字的位数也即每个链表的长度限制在范围[1, 100]. 0 &amp;lt;= Node.</description>
+    </item>
+    
     <item>
       <title>LeetCode</title>
       <link>https://www.tlst.cc/post/leetcode/</link>
       <pubDate>Tue, 19 Apr 2022 12:44:33 +0800</pubDate>
       
       <guid>https://www.tlst.cc/post/leetcode/</guid>
-      <description> 1 - Two Sum  </description>
+      <description>之前得空在leetcode上面刷了一段时间的题目，前前后后一共有三百多道题目吧。先是把简单难度的题目中大家评价还不错的题目都刷了一遍，然后是leetcode前100的题目有些之前没覆盖到的也捡起来刷了一下，这些题目甚至还试了一下多种可能的解决方案。
+前期刷题的时候，其实只是自己实现了一下，整个的解决方案比较繁琐，没有花时间在评论区多看一看。
+其实当我仔细看了有些大佬的解决方案之后，有时候甚至会产生一些羞愧感，明明相似的题目我之前做过，为什么现在又不会了等等。
+在刷前一百的题目的时候，我有仔细对比自己的解决方案和其他人提供的解决方案有什么不同，事实证明，在评论区泡一泡还是有不少收获的。所以现在又回过头来看下之前刷的题目，然后慢慢整理一遍。
+列表  1 - Two Sum 2 - Add Two Number  </description>
     </item>
     
     <item>
