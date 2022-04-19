@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thumb Generator</title>
+    <script src="https://codepen.io/soju22/pen/40e576c3acef9d41be38338a5abfc3d4.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+        }
+      }
+
+    </script>
+
+    <style type="text/css">
+        body, html {
+            margin: 0;
+            width: 100%;
+        }
+    </style>
+
+    <script type="module">
+        import {createApp} from 'vue'
+
+        const randomColor = () => {
+            const randomColors = niceColors[Math.floor(Math.random() * niceColors.length)];
+
+            return randomColors[Math.floor(Math.random() * randomColors.length)];
+        }
+
+        createApp({
+            data() {
+                return {
+                    thumbTitle: 'Tulips',
+                    backgroundWidth: 1400,
+                    backgroundHeight: 600,
+                    fontSize: '10em',
+                    backgroundColor: randomColor(),
+                }
+            },
+            methods: {
+                changeColor() {
+                    this.backgroundColor = randomColor();
+                }
+            },
+            computed: {
+                container() {
+                    return {
+                        display: 'flex',
+                        alignItems: 'center',
+                        width: '100%',
+                        height: '100%',
+                    }
+                },
+
+                leftSection() {
+                    return {
+                        flex: 1,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        margin: '10px',
+                    }
+                },
+
+                rightSection() {
+                    return {
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        width: this.backgroundWidth + 'px',
+                        height: this.backgroundHeight + 'px',
+                        backgroundColor: this.backgroundColor,
+                        margin: '10px',
+                    }
+                },
+
+                input() {
+                    return {
+                        display: 'block',
+                        lineHeight: '2em',
+                        padding: '5px',
+                        margin: '10px 0',
+                        width: '100%',
+                        verticalAlign: 'middle',
+                    }
+                },
+
+                span() {
+                    return {
+                        display: 'block',
+                    }
+                },
+
+                title() {
+                    return {
+                        display: 'block',
+                        color: '#fff',
+                        fontSize: this.fontSize,
+                        fontWeight: 800,
+                        textAlign: 'center',
+                        flex: 1,
+                    }
+                }
+            },
+            template: `<div :style="container">
+                           <div :style="leftSection">
+                                <span :style="span">Width<span>
+                                <input :style="input" v-model="backgroundWidth"/>
+                                <span :style="span">Height<span>
+                                <input :style="input" v-model="backgroundHeight"/>
+                                <span :style="span">Title<span>
+                                <input :style="input" v-model="thumbTitle"/>
+                                <span :style="span">Font Size<span>
+                                <input :style="input" v-model="fontSize"/>
+
+                                <input :style="input" type="button" value="Change Color" @click="changeColor"/>
+                           </div>
+                           <div :style="rightSection"><span :style="title">{{ thumbTitle }}<span></div>
+                       </div>`
+        }).mount('#app')
+    </script>
+</head>
+<body>
+<div id="app"></div>
+</body>
+</html>

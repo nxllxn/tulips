@@ -53,6 +53,10 @@ http {
             rewrite ^/colorful$ post/colorful.html;
         }
 
+        location /thumb-generator {
+            rewrite ^/thumb-generator$ post/thumb-generator.html;
+        }
+
         location ~ \.(?:jpg|jpeg|gif|png|ico|cur|gz|svg|mp4|ogg|ogv|webm|htc|webp)$ {
             add_header Cache-Control "public, s-maxage=7776000, max-age=86400";
         }
