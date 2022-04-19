@@ -50,11 +50,11 @@ http {
         }
 
         location /colorful {
-            rewrite ^/colorful$ post/colorful.html;
+            rewrite ^/colorful$ /post/colorful.html;
         }
 
         location /thumb-generator {
-            rewrite ^/thumb-generator$ post/thumb-generator.html;
+            rewrite ^/thumb-generator$ /post/thumb-generator.html;
         }
 
         location ~ \.(?:jpg|jpeg|gif|png|ico|cur|gz|svg|mp4|ogg|ogv|webm|htc|webp)$ {

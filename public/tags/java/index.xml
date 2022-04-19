@@ -18,6 +18,21 @@
     </item>
     
     <item>
+      <title>Two Sum</title>
+      <link>https://www.tlst.cc/post/leetcode-1-two-sum/</link>
+      <pubDate>Tue, 19 Apr 2022 12:44:33 +0800</pubDate>
+      
+      <guid>https://www.tlst.cc/post/leetcode-1-two-sum/</guid>
+      <description>Two Sum 概述 给定一个整数数组和一个目标值，在数组中找到两个数字，满足这两个数字之和等于目标值，返回这两个数字的索引。
+此处我们假定这个数组中只有一个组合满足上述条件，此外，你不能使用同一个数字两次。
+你可以以任意顺序返回组合的索引。
+示例 1:
+输入: nums = [2,7,11,15], target = 9 输出: [0,1] 解释: Because nums[0] + nums[1] == 9, we return [0, 1]. 示例 2:
+输入: nums = [3,2,4], target = 6 输出: [1,2] 示例 3:
+输入: nums = [3,3], target = 6 输出: [0,1] 限制条件:</description>
+    </item>
+    
+    <item>
       <title>Java内存模型</title>
       <link>https://www.tlst.cc/post/java-concurrent-programming-02/</link>
       <pubDate>Wed, 30 Mar 2022 12:44:33 +0800</pubDate>

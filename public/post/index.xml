@@ -18,6 +18,21 @@
     </item>
     
     <item>
+      <title>Two Sum</title>
+      <link>https://www.tlst.cc/post/leetcode-1-two-sum/</link>
+      <pubDate>Tue, 19 Apr 2022 12:44:33 +0800</pubDate>
+      
+      <guid>https://www.tlst.cc/post/leetcode-1-two-sum/</guid>
+      <description>Two Sum 概述 给定一个整数数组和一个目标值，在数组中找到两个数字，满足这两个数字之和等于目标值，返回这两个数字的索引。
+此处我们假定这个数组中只有一个组合满足上述条件，此外，你不能使用同一个数字两次。
+你可以以任意顺序返回组合的索引。
+示例 1:
+输入: nums = [2,7,11,15], target = 9 输出: [0,1] 解释: Because nums[0] + nums[1] == 9, we return [0, 1]. 示例 2:
+输入: nums = [3,2,4], target = 6 输出: [1,2] 示例 3:
+输入: nums = [3,3], target = 6 输出: [0,1] 限制条件:</description>
+    </item>
+    
+    <item>
       <title>Java内存模型</title>
       <link>https://www.tlst.cc/post/java-concurrent-programming-02/</link>
       <pubDate>Wed, 30 Mar 2022 12:44:33 +0800</pubDate>
@@ -99,21 +114,6 @@ OK我们此时已经拿到了一个所谓的方程f(n) = f(n - 1) + f(n - 2)，�
       <guid>https://www.tlst.cc/post/blog-with-go-hugo-nginx/</guid>
       <description>本文中，我将会简单讨论什么是静态页面生成，简单了解几种比较流行的静态页面生成器并选取其中一种名叫Hugo的静态页面生成器进行详细介绍。 事实上，您现在所看到的的内容正是基于Hugo以及其最受欢迎的主题Log Book所构建的。
 目录  什么是静态网站生成 为什么仍然需要静态网站 常见的一些静态页面生成器 Hugo / Jekyll / Hexo 准备工作  第一步 - 安装Go 第二步 - 安装Hugo 第三步 - 让我们简单认识一下Hugo CLI  hugo命令 草稿 / 未来 / 过期内容 hugo server / 热加载     开始网站搭建  第一步 - 创建一个网站 第二步 - 为你的网站添加主题 第三步 - 为你的网站添加一些内容 第四步 - 启动Hugo Server   部署我们的网站到服务器  第一步 - 换一个好看的主题 第二步 - 构建我们需要部署的静态资源 第三步 - 推送文件到远程仓库 第四步 - 使用Nginx部署网站   踩坑记录  什么是静态网站生成  所谓静态网站生成或者静态页面生成是指一种处理过程，其能够静态地生成一个网站，这个网站可能由一系列的静态的HTML页面组成。 通常，我们在本地环境通过这种流程生成静态的页面，然后我们将其上传至对应的服务器进行发布，当用户请求对应的资源时，我们直接将这些资源返回给用户进行展示。 整个过程中，不需要任何的服务器端渲染或者处理，客户端和服务器也不会有其他形式的数据传输，仅仅专递静态资源文件。</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://www.tlst.cc/post/leetcode-1-two-sum/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.tlst.cc/post/leetcode-1-two-sum/</guid>
-      <description>Two Sum 概述 给定一个整数数组和一个目标值，在数组中找到两个数字，满足这两个数字之和等于目标值，返回这两个数字的索引。
-此处我们假定这个数组中只有一个组合满足上述条件，此外，你不能使用同一个数字两次。
-你可以以任意顺序返回组合的索引。
-示例 1:
-输入: nums = [2,7,11,15], target = 9 输出: [0,1] 解释: Because nums[0] + nums[1] == 9, we return [0, 1]. 示例 2:
-输入: nums = [3,2,4], target = 6 输出: [1,2] 示例 3:
-输入: nums = [3,3], target = 6 输出: [0,1] 限制条件:</description>
     </item>
     
   </channel>
