@@ -24,6 +24,20 @@ Add Two Number 示例 示例 1:
     </item>
     
     <item>
+      <title>Longest Substring Without Repeating Characters</title>
+      <link>https://www.tlst.cc/post/leetcode-3-longest-substring-without-repeating-characters/</link>
+      <pubDate>Tue, 19 Apr 2022 17:44:33 +0800</pubDate>
+      
+      <guid>https://www.tlst.cc/post/leetcode-3-longest-substring-without-repeating-characters/</guid>
+      <description>给定一个字符串，找到它里面不包含重复字符的最长的字串。
+Longest Substring Without Repeating Characters 示例 示例 1:
+输入: s = &amp;#34;abcabcbb&amp;#34; 输出: 3 解释: 满足条件的最长字串是&amp;#34;abc&amp;#34;，字符串长度是3 示例 2:
+输入: s = &amp;#34;bbbbb&amp;#34; 输出: 1 解释: 满足条件的最长字串是&amp;#34;b&amp;#34;，长度是1 示例 3:
+输入: s = &amp;#34;pwwkew&amp;#34; 输出: 3 解释: 满足条件的最长字串是&amp;#34;wke&amp;#34;，长度是3 Constraints:
+ 0 &amp;lt;= s.length &amp;lt;= 5 * 10000 字符串可能包含英文字母，数字，特殊符号以及空格  解决方案 解决方案 1 - BitSet class Solution {  public int lengthOfLongestSubstring(String s) {  java.</description>
+    </item>
+    
+    <item>
       <title>LeetCode</title>
       <link>https://www.tlst.cc/post/leetcode/</link>
       <pubDate>Tue, 19 Apr 2022 12:44:33 +0800</pubDate>
