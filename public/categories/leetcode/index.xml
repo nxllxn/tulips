@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright @ 2022 郁金香啊</copyright>
-    <lastBuildDate>Thu, 21 Apr 2022 12:01:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Apr 2022 18:44:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Zigzag Conversion</title>
+      <link>https://www.tlst.cc/post/leetcode-6-zigzag-conversion/</link>
+      <pubDate>Sat, 23 Apr 2022 18:44:33 +0800</pubDate>
+      
+      <guid>https://www.tlst.cc/post/leetcode-6-zigzag-conversion/</guid>
+      <description>我们来定义一个zigzag模式，给定一个字符串，比如PAYPALISHIRING，特定条件下，它的zigzag模式为PAHNAPLSIIGYIR，这是我们将原字符串按照一定的规则打破重组之后得到的。
+具体规则是，首先将这个字符串中的各个字符按照英文字母N的书写顺序在特定的行数限制下进行排列，然后我们收集每一行的字符，并按照行从上往下将各行中收集到的字符串拼接成一个新的字符串。
+比如，对于字符串PAYPALISHIRING，首先按照字母N的书写顺序在三行上进行重新排列，将得到
+P A H N A P L S I I G Y I R 然后我们将每一行上的字符收集起来，得到
+PAHN APLSIIG YIR 并按照从上往下的顺序将多行收集到的字符串拼接成一个新的字符串PAHN + APLSIIG + YIR =&amp;gt; PAHNAPLSIIGYIR。
+同理，如果行数为4，那么重新排列之后是
+P I N A L S I G Y A H R P I 重新收集拼接之后将会是PIN + ALSIG + YAHR + PI + =&amp;gt;PINALSIGYAHRPI。</description>
+    </item>
+    
     <item>
       <title>Longest Palindromic Substring</title>
       <link>https://www.tlst.cc/post/leetcode-5-longest-palindromic-substring/</link>
@@ -77,7 +92,7 @@ Add Two Number 示例 示例 1:
 前期刷题的时候，其实只是自己实现了一下，整个的解决方案比较繁琐，没有花时间在评论区多看一看。
 其实当我仔细看了有些大佬的解决方案之后，有时候甚至会产生一些羞愧感，明明相似的题目我之前做过，为什么现在又不会了等等。
 在刷前一百的题目的时候，我有仔细对比自己的解决方案和其他人提供的解决方案有什么不同，事实证明，在评论区泡一泡还是有不少收获的。所以现在又回过头来看下之前刷的题目，然后慢慢整理一遍。
-列表  1 - Two Sum 2 - Add Two Number 3 - Longest Substring Without Repeating Characters 4 - Median of Two Sorted Arrays 5 - Longest Palindromic Substring  </description>
+列表  1 - Two Sum 2 - Add Two Number 3 - Longest Substring Without Repeating Characters 4 - Median of Two Sorted Arrays 5 - Longest Palindromic Substring 6 - Zigzag Conversion  </description>
     </item>
     
     <item>
