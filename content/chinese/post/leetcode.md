@@ -29,3 +29,4 @@ draft: false
 * **[4 - Median of Two Sorted Arrays](../../post/leetcode-4-medianof-two-sorted-arrays)**
 * **[5 - Longest Palindromic Substring](../../post/leetcode-5-longest-palindromic-substring/)**
 * **[6 - Zigzag Conversion](../../post/leetcode-6-zigzag-conversion/)**
+* **[7 - Reverse Integer](../../post/leetcode-7-reverse-integer/)**

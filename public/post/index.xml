@@ -7,7 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright @ 2022 郁金香啊</copyright>
-    <lastBuildDate>Sat, 23 Apr 2022 18:44:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Apr 2022 18:57:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reverse Integer</title>
+      <link>https://www.tlst.cc/post/leetcode-7-reverse-integer/</link>
+      <pubDate>Sat, 23 Apr 2022 18:57:33 +0800</pubDate>
+      
+      <guid>https://www.tlst.cc/post/leetcode-7-reverse-integer/</guid>
+      <description>给定一个32位的整数，以十进制表示，返回将其所有数字位翻转之后得到的新的数值，如果由于翻转导致数字溢出，那么返回0。此处假定我们使用的系统不支持64位的整数。
+Reverse Integer 示例 示例 1:
+输入: x = 123 输出: 321 示例 2:
+输入: x = -123 输出: -321 示例 3:
+输入: x = 120 输出: 21 限制条件:
+ -2 ^ 31 &amp;lt;= x &amp;lt;= 2 ^ 31 - 1  解决方案 解决方案 1 让我们再次回顾题目，整个翻转过程其实并不复杂，但是唯一需要注意的就是，我们可能发生溢出。
+比如假定我们使用的不是32位整数，而是八位整数，其范围在[-128 ~ 127]之间。那么当我们尝试对这个范围内的一些整数进行翻转时可能会溢出，比如127，翻转之后是721，显然它已经远远超过了8位整数所能表示的范围。
+那么我们如何检测是否发生了溢出呢？让我们看一下整个翻转流程</description>
+    </item>
+    
     <item>
       <title>Zigzag Conversion</title>
       <link>https://www.tlst.cc/post/leetcode-6-zigzag-conversion/</link>
@@ -92,7 +108,7 @@ Add Two Number 示例 示例 1:
 前期刷题的时候，其实只是自己实现了一下，整个的解决方案比较繁琐，没有花时间在评论区多看一看。
 其实当我仔细看了有些大佬的解决方案之后，有时候甚至会产生一些羞愧感，明明相似的题目我之前做过，为什么现在又不会了等等。
 在刷前一百的题目的时候，我有仔细对比自己的解决方案和其他人提供的解决方案有什么不同，事实证明，在评论区泡一泡还是有不少收获的。所以现在又回过头来看下之前刷的题目，然后慢慢整理一遍。
-列表  1 - Two Sum 2 - Add Two Number 3 - Longest Substring Without Repeating Characters 4 - Median of Two Sorted Arrays 5 - Longest Palindromic Substring 6 - Zigzag Conversion  </description>
+列表  1 - Two Sum 2 - Add Two Number 3 - Longest Substring Without Repeating Characters 4 - Median of Two Sorted Arrays 5 - Longest Palindromic Substring 6 - Zigzag Conversion 7 - Reverse Integer  </description>
     </item>
     
     <item>
