@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright @ 2022 郁金香啊</copyright>
-    <lastBuildDate>Sat, 23 Apr 2022 18:57:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Apr 2022 21:05:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Regular Expression Matching</title>
+      <link>https://www.tlst.cc/post/leetcode-10-regular-expression-matching/</link>
+      <pubDate>Sun, 24 Apr 2022 21:05:33 +0800</pubDate>
+      
+      <guid>https://www.tlst.cc/post/leetcode-10-regular-expression-matching/</guid>
+      <description>初次看到这个题目时，给定测试用例，脑子倒是能够很快计算出是否匹配，但是具体怎么通过代码来进行实现却是一时间没太想清楚。后面看了很多的解决方案，大多数解决方案思路的话基本都是动态规划，此外也了解到一个FAM，有限自动机的概念，这个概念在实现正则表达式时好像还蛮有用的。
+给定一个字符串S和一个模式P，实现一个正则匹配，此处我们仅需要支持.和*。其中，.匹配任意字符，*匹配零次或者多次前面的元素。注意此处是匹配，不是查找，也就是我们的模式必须恰好匹配整个字符串。
+Regular Expression Matching 示例 1:
+输入: s = &amp;#34;aa&amp;#34;, p = &amp;#34;a&amp;#34; 输出: false 解释: 模式只能匹配字符串中的一个字符 示例 2:
+输入: s = &amp;#34;aa&amp;#34;, p = &amp;#34;a*&amp;#34; 输出: true 解释: *表示匹配前面这个元素一次或者多次，所以我们可以匹配a两次 示例 3:
+输入: s = &amp;#34;ab&amp;#34;, p = &amp;#34;.*&amp;#34; 输出: true 解释: &amp;#34;.*&amp;#34;意味着我们可以匹配任意字符多次 限制条件:
+ 1 &amp;lt;= s.length &amp;lt;= 20 1 &amp;lt;= p.</description>
+    </item>
+    
     <item>
       <title>Reverse Integer</title>
       <link>https://www.tlst.cc/post/leetcode-7-reverse-integer/</link>
@@ -108,7 +123,7 @@ Add Two Number 示例 示例 1:
 前期刷题的时候，其实只是自己实现了一下，整个的解决方案比较繁琐，没有花时间在评论区多看一看。
 其实当我仔细看了有些大佬的解决方案之后，有时候甚至会产生一些羞愧感，明明相似的题目我之前做过，为什么现在又不会了等等。
 在刷前一百的题目的时候，我有仔细对比自己的解决方案和其他人提供的解决方案有什么不同，事实证明，在评论区泡一泡还是有不少收获的。所以现在又回过头来看下之前刷的题目，然后慢慢整理一遍。
-列表  1 - Two Sum 2 - Add Two Number 3 - Longest Substring Without Repeating Characters 4 - Median of Two Sorted Arrays 5 - Longest Palindromic Substring 6 - Zigzag Conversion 7 - Reverse Integer  </description>
+列表  1 - Two Sum 2 - Add Two Number 3 - Longest Substring Without Repeating Characters 4 - Median of Two Sorted Arrays 5 - Longest Palindromic Substring 6 - Zigzag Conversion 7 - Reverse Integer 10 - Regular Expression Matching  </description>
     </item>
     
     <item>
