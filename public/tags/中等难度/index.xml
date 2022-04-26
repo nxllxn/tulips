@@ -7,7 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright @ 2022 郁金香啊</copyright>
-    <lastBuildDate>Sat, 23 Apr 2022 18:57:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/tags/%E4%B8%AD%E7%AD%89%E9%9A%BE%E5%BA%A6/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Apr 2022 21:05:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/tags/%E4%B8%AD%E7%AD%89%E9%9A%BE%E5%BA%A6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Container With Most Water</title>
+      <link>https://www.tlst.cc/post/leetcode-11-container-with-most-water/</link>
+      <pubDate>Sun, 24 Apr 2022 21:05:33 +0800</pubDate>
+      
+      <guid>https://www.tlst.cc/post/leetcode-11-container-with-most-water/</guid>
+      <description>给定一个数组里面包含n个数字，这n个数字分别表示n个柱子的高度。
+我们选定任意两根柱子，配合x轴，我们都能够组合成一个容器，找到所有柱子中任意两个组合所能组成的容器中，能够装水最多的那个，返回最大的容积。
+注意，你不能倾斜容器。
+Container With Most Water 示例 示例 1:
+输入: height = [1,8,6,2,5,4,8,3,7] 输出: 49 解释: 这一组数字表示的柱子中，能够组成的最大容器是第二根柱子和最后一根柱子，整个容器的宽度是7，高度是7，最大容积是49 Example 2:
+输入: height = [1,1] 输出: 1 限制条件:
+ n == height.length 2 &amp;lt;= n &amp;lt;= 105 0 &amp;lt;= height[i] &amp;lt;= 104  解决方案 解决方案 1 - 暴力破解 对于每一根柱子，我们可以遍历右边的所有柱子，然后计算出所有可能的组合对应的所有容积，然后就可以找到容积最大的那一个。示例代码如下。
+class Solution {  public int _maxArea(int[] height) { //超出时间限制  int maxArea = 0;  for(int index = 0;index &amp;lt; height.</description>
+    </item>
+    
     <item>
       <title>Reverse Integer</title>
       <link>https://www.tlst.cc/post/leetcode-7-reverse-integer/</link>
