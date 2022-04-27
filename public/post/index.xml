@@ -7,11 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright @ 2022 郁金香啊</copyright>
-    <lastBuildDate>Sun, 24 Apr 2022 21:05:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Apr 2022 19:59:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Integer to Roman</title>
+      <link>https://www.tlst.cc/post/leetcode-12-integer-to-roman/</link>
+      <pubDate>Wed, 27 Apr 2022 19:59:33 +0800</pubDate>
+      
+      <guid>https://www.tlst.cc/post/leetcode-12-integer-to-roman/</guid>
+      <description>罗马数字是由七个不同的字母来表示，I, V, X, L, C, D 和 M.
+Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+符号 值 I 1 V 5 X 10 L 50 C 100 D 500 M 1000 比如，数值2在罗马数字表示法中写作II，12则写作XII，就是简单的10（X）加上2(II)，27写作XXVII，就是20（XX）加上5（V）加上2（II）。
+罗马数字通常从大往小写，但是数值4对应的罗马数字不是IIII，而是IV，V前面的I使用来从数值5中减去1来得到4，同理IX表示9。具体规则是
+ I（1）可以被放到V（5）和X（10）之前，用来表示4和9 X（10）可以被放到L（50）和C（100）之前，用来表示40和90 C（100）可以被放到D（500）和M（1000）之前，用来标识400和900  给定一个阿拉伯数字，将其转换为对应的罗马数字
+Integer to Roman 示例 示例 1:</description>
+    </item>
+    
     <item>
       <title>Container With Most Water</title>
       <link>https://www.tlst.cc/post/leetcode-11-container-with-most-water/</link>
-      <pubDate>Sun, 24 Apr 2022 21:05:33 +0800</pubDate>
+      <pubDate>Tue, 26 Apr 2022 21:05:33 +0800</pubDate>
       
       <guid>https://www.tlst.cc/post/leetcode-11-container-with-most-water/</guid>
       <description>给定一个数组里面包含n个数字，这n个数字分别表示n个柱子的高度。
@@ -139,7 +153,7 @@ Add Two Number 示例 示例 1:
 前期刷题的时候，其实只是自己实现了一下，整个的解决方案比较繁琐，没有花时间在评论区多看一看。
 其实当我仔细看了有些大佬的解决方案之后，有时候甚至会产生一些羞愧感，明明相似的题目我之前做过，为什么现在又不会了等等。
 在刷前一百的题目的时候，我有仔细对比自己的解决方案和其他人提供的解决方案有什么不同，事实证明，在评论区泡一泡还是有不少收获的。所以现在又回过头来看下之前刷的题目，然后慢慢整理一遍。
-列表  1 - Two Sum 2 - Add Two Number 3 - Longest Substring Without Repeating Characters 4 - Median of Two Sorted Arrays 5 - Longest Palindromic Substring 6 - Zigzag Conversion 7 - Reverse Integer 10 - Regular Expression Matching 11 - Container With Most Water  </description>
+列表  1 - Two Sum 2 - Add Two Number 3 - Longest Substring Without Repeating Characters 4 - Median of Two Sorted Arrays 5 - Longest Palindromic Substring 6 - Zigzag Conversion 7 - Reverse Integer 10 - Regular Expression Matching 11 - Container With Most Water 12 - Integer to Roman  </description>
     </item>
     
     <item>
