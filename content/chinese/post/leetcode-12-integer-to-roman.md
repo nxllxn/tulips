@@ -81,3 +81,39 @@ class Solution {
     }
 }
 ```
+
+## 延伸 - 罗马数字到阿拉伯数字
+一个基本规律，如果一个字符表示的数值比后面的那个字符表示的数值小，那么这个数值一定是从后面这个字符表示的数值减去本身锁代表的数值。
+
+```java
+class Solution {
+    public int romanToInt(String s) {
+        if(s.length() == 0) {
+            return 0;
+        }
+        
+        Map<Character, Integer> scale = new HashMap<>();
+        
+        scale.put('I',1);
+        scale.put('V',5);
+        scale.put('X',10);
+        scale.put('L',50);
+        scale.put('C',100);
+        scale.put('D',500);
+        scale.put('M',1000);
+        
+        int value = 0;
+        for(int index = 0;index < s.length() - 1; index++) {
+            if(scale.get(s.charAt(index)) < scale.get(s.charAt(index + 1))) {
+                value -= scale.get(s.charAt(index));
+            } else {
+                value += scale.get(s.charAt(index));
+            }
+        }
+        
+        value += scale.get(s.charAt(s.length() - 1));
+        
+        return value;
+    }
+}
+```
