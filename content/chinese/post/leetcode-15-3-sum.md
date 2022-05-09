@@ -10,7 +10,7 @@ author: "郁金香啊"
 description: "3Sum"
 # Taxonomies
 categories: ["LeetCode","算法"]
-tags: ["Java","LeetCode","算法","简单难度"]
+tags: ["Java","LeetCode","算法","困难难度"]
 type: "regular"
 draft: false
 ---

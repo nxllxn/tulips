@@ -7,7 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright @ 2022 郁金香啊</copyright>
-    <lastBuildDate>Sat, 07 May 2022 21:16:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 May 2022 20:02:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/categories/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>3Sum Closest</title>
+      <link>https://www.tlst.cc/post/leetcode-16-3-sum-closest/</link>
+      <pubDate>Mon, 09 May 2022 20:02:33 +0800</pubDate>
+      
+      <guid>https://www.tlst.cc/post/leetcode-16-3-sum-closest/</guid>
+      <description>给定一组整数以及一个目标数，找到任意三个数字使得这三个数字之和最接近目标数。返回这三个数字之和。
+你可以假定每一个输入仅仅包含一个解。
+示例 示例 1:
+输入: nums = [-1,2,1,-4], target = 1 输出: 2 解释: The sum that is closest to the target is 2. (-1 + 2 + 1 = 2). **示例 2:** 输入: nums = [0,0,0], target = 1 输出: 0 限制条件:
+ 3 &amp;lt;= nums.length &amp;lt;= 1000 -1000 &amp;lt;= nums[i] &amp;lt;= 1000 -104 &amp;lt;= target &amp;lt;= 104  解决方案 解决方案 1 - 排序 &amp;amp; 双指针 根据上一道题目的解决方案，我们很容易得到这道题目的解决方案，思路基本相似，唯一需要调整的就是记录下最小的差别以及得到最小差别时的总和。</description>
+    </item>
+    
     <item>
       <title>3Sum</title>
       <link>https://www.tlst.cc/post/leetcode-15-3-sum/</link>
@@ -183,7 +196,7 @@ Add Two Number 示例 示例 1:
 前期刷题的时候，其实只是自己实现了一下，整个的解决方案比较繁琐，没有花时间在评论区多看一看。
 其实当我仔细看了有些大佬的解决方案之后，有时候甚至会产生一些羞愧感，明明相似的题目我之前做过，为什么现在又不会了等等。
 在刷前一百的题目的时候，我有仔细对比自己的解决方案和其他人提供的解决方案有什么不同，事实证明，在评论区泡一泡还是有不少收获的。所以现在又回过头来看下之前刷的题目，然后慢慢整理一遍。
-列表  1 - Two Sum 2 - Add Two Number 3 - Longest Substring Without Repeating Characters 4 - Median of Two Sorted Arrays 5 - Longest Palindromic Substring 6 - Zigzag Conversion 7 - Reverse Integer 10 - Regular Expression Matching 11 - Container With Most Water 12 - Integer to Roman 14 - Longest Common Prefix 15 - 3Sum  </description>
+列表  1 - Two Sum 2 - Add Two Number 3 - Longest Substring Without Repeating Characters 4 - Median of Two Sorted Arrays 5 - Longest Palindromic Substring 6 - Zigzag Conversion 7 - Reverse Integer 10 - Regular Expression Matching 11 - Container With Most Water 12 - Integer to Roman 14 - Longest Common Prefix 15 - 3Sum 16 - 3Sum Closest  </description>
     </item>
     
     <item>
