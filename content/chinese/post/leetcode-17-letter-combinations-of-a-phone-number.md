@@ -10,7 +10,7 @@ author: "郁金香啊"
 description: "Letter Combinations of a Phone Number"
 # Taxonomies
 categories: ["LeetCode","算法"]
-tags: ["Java","LeetCode","算法","困难难度"]
+tags: ["Java","LeetCode","算法","中等难度"]
 type: "regular"
 draft: false
 ---
