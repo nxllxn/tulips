@@ -7,7 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright @ 2022 郁金香啊</copyright>
-    <lastBuildDate>Wed, 11 May 2022 19:40:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 May 2022 20:13:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Valid Parentheses</title>
+      <link>https://www.tlst.cc/post/leetcode-22-generate-parentheses/</link>
+      <pubDate>Mon, 16 May 2022 20:13:33 +0800</pubDate>
+      
+      <guid>https://www.tlst.cc/post/leetcode-22-generate-parentheses/</guid>
+      <description>给定N组括号，实现一个函数以生成所有可能的有效的括号组合。
+示例 示例 1:
+Input: n = 3 Output: [&amp;#34;((()))&amp;#34;,&amp;#34;(()())&amp;#34;,&amp;#34;(())()&amp;#34;,&amp;#34;()(())&amp;#34;,&amp;#34;()()()&amp;#34;] 示例 2:
+Input: n = 1 Output: [&amp;#34;()&amp;#34;] 限制条件:
+ 1 &amp;lt;= n &amp;lt;= 8  实现方案 实现方案 1 - 展开 - 错误答案 当我看到这道题目时，我第一个解决方案是对括号进行一层一层的展开，如果我们有一个字符串了，那么再加一组括号的话，要么是在这个字符串的前面加上()，要么是在这个字符串的后面加上()，要么是在前面加上(然后在后面加上).
+在数量较少时这样的思路的确能够得到正确的结果，但是括号的组数为4时我们实际得到的结果就已经有些遗漏了。我们无法组装出(())(())这种结果。
+我们简单看下四次计算过程。注意我们去掉了重复的结果
+() ()() (()) ()()() (()()) ()(()) ((())) (())() ()()()() (()()()) ()(()()) ((()())) (()())() ()()(()) (()(())) ()(())() ()((())) (((()))) ((()))() ((())()) (())()() class Solution {  //(())(()) cannot generate this combination  public List&amp;lt;String&amp;gt; generateParenthesis_wrong(int n) {  LinkedList&amp;lt;String&amp;gt; queue = new LinkedList&amp;lt;&amp;gt;();   queue.</description>
+    </item>
+    
     <item>
       <title>Valid Parentheses</title>
       <link>https://www.tlst.cc/post/leetcode-20-valid-parentheses/</link>
@@ -241,7 +257,7 @@ Add Two Number 示例 示例 1:
 前期刷题的时候，其实只是自己实现了一下，整个的解决方案比较繁琐，没有花时间在评论区多看一看。
 其实当我仔细看了有些大佬的解决方案之后，有时候甚至会产生一些羞愧感，明明相似的题目我之前做过，为什么现在又不会了等等。
 在刷前一百的题目的时候，我有仔细对比自己的解决方案和其他人提供的解决方案有什么不同，事实证明，在评论区泡一泡还是有不少收获的。所以现在又回过头来看下之前刷的题目，然后慢慢整理一遍。
-列表  1 - Two Sum 2 - Add Two Number 3 - Longest Substring Without Repeating Characters 4 - Median of Two Sorted Arrays 5 - Longest Palindromic Substring 6 - Zigzag Conversion 7 - Reverse Integer 10 - Regular Expression Matching 11 - Container With Most Water 12 - Integer to Roman 14 - Longest Common Prefix 15 - 3Sum 16 - 3Sum Closest 17 - Letter Combinations of a Phone Number 19 - Remove Nth Node From End of List 20 - Valid Parentheses  </description>
+列表  1 - Two Sum 2 - Add Two Number 3 - Longest Substring Without Repeating Characters 4 - Median of Two Sorted Arrays 5 - Longest Palindromic Substring 6 - Zigzag Conversion 7 - Reverse Integer 10 - Regular Expression Matching 11 - Container With Most Water 12 - Integer to Roman 14 - Longest Common Prefix 15 - 3Sum 16 - 3Sum Closest 17 - Letter Combinations of a Phone Number 19 - Remove Nth Node From End of List 20 - Valid Parentheses 22 - Generate Parentheses  </description>
     </item>
     
     <item>
