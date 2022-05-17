@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright @ 2022 郁金香啊</copyright>
-    <lastBuildDate>Mon, 16 May 2022 20:13:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/tags/%E4%B8%AD%E7%AD%89%E9%9A%BE%E5%BA%A6/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 May 2022 20:55:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/tags/%E4%B8%AD%E7%AD%89%E9%9A%BE%E5%BA%A6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Swap Nodes in Pairs</title>
+      <link>https://www.tlst.cc/post/leetcode-24-swap-nodes-in-pairs/</link>
+      <pubDate>Tue, 17 May 2022 20:55:33 +0800</pubDate>
+      
+      <guid>https://www.tlst.cc/post/leetcode-24-swap-nodes-in-pairs/</guid>
+      <description>给定一个链表，交换每每两个相邻的节点，然后返回新的链表头。
+你的解决方案里不能修改节点值，你只能通过调整节点的顺序来实现。
+示例 示例 1:
+输入: head = [1,2,3,4] 输出: [2,1,4,3] 示例 2:
+输入: head = [] 输出: [] 示例 3:
+输入: head = [1] 输出: [1] 限制条件:
+ 节点值取值范围为[0, 100]. 0 &amp;lt;= Node.val &amp;lt;= 100  解决方案 解决方案 1 - 拆链表 + 合并链表 当我看到这道题目的时候，脑子里面出现了一个很奇特的思路，那就是我们可以先把链表按照奇数节点和偶数节点拆成两个，然后再把他们归并起来，归并的时候第二个链表先归并就好了。
+比如假定我们的链表是1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;6-&amp;gt;7-&amp;gt;8，先按照奇数偶数节点拆分成两个1-&amp;gt;3-&amp;gt;5-&amp;gt;7和2-&amp;gt;4-&amp;gt;6-&amp;gt;8，然后第二个和第一个链表进行归并就得到2-&amp;gt;1-&amp;gt;4-&amp;gt;3-&amp;gt;6-&amp;gt;5-&amp;gt;8-&amp;gt;7。
+具体代码如下
+/** * Definition for singly-linked list.</description>
+    </item>
+    
     <item>
       <title>Valid Parentheses</title>
       <link>https://www.tlst.cc/post/leetcode-22-generate-parentheses/</link>

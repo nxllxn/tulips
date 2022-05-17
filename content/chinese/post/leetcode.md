@@ -41,3 +41,4 @@ draft: false
 * **[20 - Valid Parentheses](../../post/leetcode-20-valid-parentheses/)**
 * **[22 - Generate Parentheses](../../post/leetcode-22-generate-parentheses/)**
 * **[23 - Merge k Sorted Lists](../../post/leetcode-23-merge-k-sorted-lists/)**
+* **[24 - Swap Nodes in Pairs](../../post/leetcode-24-swap-nodes-in-pairs/)**
