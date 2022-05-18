@@ -7,7 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright @ 2022 郁金香啊</copyright>
-    <lastBuildDate>Tue, 17 May 2022 20:55:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 May 2022 20:44:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reverse Nodes in k-Group</title>
+      <link>https://www.tlst.cc/post/leetcode-25-reverse-nodes-in-k-group/</link>
+      <pubDate>Wed, 18 May 2022 20:44:33 +0800</pubDate>
+      
+      <guid>https://www.tlst.cc/post/leetcode-25-reverse-nodes-in-k-group/</guid>
+      <description>给定一个链表，从前往后，每k个节点做一次翻转，返回翻转后的链表。
+k是一个正整数，其小于或者等于链表长度，如果链表的节点数量n不是k的整数倍，那么最后面的n % k个节点顺序保持不变。
+你不能改变节点的数值，只能调整节点的顺序。
+示例 示例 1:
+输入: head = [1,2,3,4,5], k = 2 输出: [2,1,4,3,5] 示例 2:
+输入: head = [1,2,3,4,5], k = 3 输出: [3,2,1,4,5] 限制条件:
+ 给定节点数量n 1 &amp;lt;= k &amp;lt;= n &amp;lt;= 5000 0 &amp;lt;= Node.val &amp;lt;= 1000  解决方案 解决方案 1 - 快慢指针 + 栈 网上有很多解决方案是基于递归或者迭代的，递归的还比较好理解，但是迭代的解决方案中包含大量的指针运算，不是很好理解。</description>
+    </item>
+    
     <item>
       <title>Swap Nodes in Pairs</title>
       <link>https://www.tlst.cc/post/leetcode-24-swap-nodes-in-pairs/</link>
@@ -298,7 +313,7 @@ Add Two Number 示例 示例 1:
 前期刷题的时候，其实只是自己实现了一下，整个的解决方案比较繁琐，没有花时间在评论区多看一看。
 其实当我仔细看了有些大佬的解决方案之后，有时候甚至会产生一些羞愧感，明明相似的题目我之前做过，为什么现在又不会了等等。
 在刷前一百的题目的时候，我有仔细对比自己的解决方案和其他人提供的解决方案有什么不同，事实证明，在评论区泡一泡还是有不少收获的。所以现在又回过头来看下之前刷的题目，然后慢慢整理一遍。
-列表  1 - Two Sum 2 - Add Two Number 3 - Longest Substring Without Repeating Characters 4 - Median of Two Sorted Arrays 5 - Longest Palindromic Substring 6 - Zigzag Conversion 7 - Reverse Integer 10 - Regular Expression Matching 11 - Container With Most Water 12 - Integer to Roman 14 - Longest Common Prefix 15 - 3Sum 16 - 3Sum Closest 17 - Letter Combinations of a Phone Number 19 - Remove Nth Node From End of List 20 - Valid Parentheses 22 - Generate Parentheses 23 - Merge k Sorted Lists 24 - Swap Nodes in Pairs  </description>
+列表  1 - Two Sum 2 - Add Two Number 3 - Longest Substring Without Repeating Characters 4 - Median of Two Sorted Arrays 5 - Longest Palindromic Substring 6 - Zigzag Conversion 7 - Reverse Integer 10 - Regular Expression Matching 11 - Container With Most Water 12 - Integer to Roman 14 - Longest Common Prefix 15 - 3Sum 16 - 3Sum Closest 17 - Letter Combinations of a Phone Number 19 - Remove Nth Node From End of List 20 - Valid Parentheses 22 - Generate Parentheses 23 - Merge k Sorted Lists 24 - Swap Nodes in Pairs 25 - Reverse Nodes in k-Group  </description>
     </item>
     
     <item>

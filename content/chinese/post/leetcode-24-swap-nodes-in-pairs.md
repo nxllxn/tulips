@@ -125,4 +125,24 @@ class Solution {
 ```
 
 ### 解决方案 3 - 迭代
-待补充
+```java
+class Solution {
+    public ListNode swapPairs(ListNode head) {
+        ListNode virtual = new ListNode(0);
+        virtual.next = head;
+        ListNode point = virtual;
+        
+        while (point.next != null && point.next.next != null) {
+            ListNode swap1 = point.next;
+            ListNode swap2 = point.next.next;
+            
+            point.next = swap2;
+            swap1.next = swap2.next;
+            swap2.next = swap1;
+            point = swap1;
+        }
+        
+        return virtual.next;
+    }
+}
+```
