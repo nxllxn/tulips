@@ -42,4 +42,5 @@ draft: false
 * **[22 - Generate Parentheses](../../post/leetcode-22-generate-parentheses/)**
 * **[23 - Merge k Sorted Lists](../../post/leetcode-23-merge-k-sorted-lists/)**
 * **[24 - Swap Nodes in Pairs](../../post/leetcode-24-swap-nodes-in-pairs/)**
-* **[25 - Reverse Nodes in k-Group](../../post/leetco:de-25-reverse-nodes-in-k-group/)**
+* **[25 - Reverse Nodes in k-Group](../../post/leetcode-25-reverse-nodes-in-k-group/)**
+* **[31 - Next Permutation](../../post/leetcode-31-next-permutation/)**
