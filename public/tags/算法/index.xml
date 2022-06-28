@@ -7,7 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <copyright>Copyright @ 2022 郁金香啊</copyright>
-    <lastBuildDate>Tue, 31 May 2022 19:38:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 31 May 2022 19:42:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Longest Valid Parentheses</title>
+      <link>https://www.tlst.cc/post/leetcode-32-longest-valid-parentheses/</link>
+      <pubDate>Tue, 31 May 2022 19:42:33 +0800</pubDate>
+      
+      <guid>https://www.tlst.cc/post/leetcode-32-longest-valid-parentheses/</guid>
+      <description>给定一个由左括号和右括号组成的字符串，找到其中最长的括号正确组合的字串。
+示例 示例 1:
+输入: s = &amp;#34;(()&amp;#34; 输出: 2 解释: 最长的有效字串是&amp;#34;()&amp;#34;. 示例 2:
+输入: s = &amp;#34;)()())&amp;#34; 输出: 4 解释: 最长的有效的字串是 &amp;#34;()()&amp;#34;. 示例 3:
+输入: s = &amp;#34;&amp;#34; 输出: 0 限制条件:
+ 0 &amp;lt;= s.length &amp;lt;= 3 * 104 s[i] is &#39;(&#39;, or &#39;)&#39;.  解决方案 解决方案 1 - 动态规划 让我们看下题目，求解最长字串，此处表明我们需要得到一个最优解。这个字串必须是有效的字串，左右括号的匹配必须要合理，此处则是我们的限制条件。好的，看上去已经比较像一个动态规划的问题了。</description>
+    </item>
+    
     <item>
       <title>Next Permutation</title>
       <link>https://www.tlst.cc/post/leetcode-31-next-permutation/</link>
@@ -319,7 +333,7 @@ Add Two Number 示例 示例 1:
 前期刷题的时候，其实只是自己实现了一下，整个的解决方案比较繁琐，没有花时间在评论区多看一看。
 其实当我仔细看了有些大佬的解决方案之后，有时候甚至会产生一些羞愧感，明明相似的题目我之前做过，为什么现在又不会了等等。
 在刷前一百的题目的时候，我有仔细对比自己的解决方案和其他人提供的解决方案有什么不同，事实证明，在评论区泡一泡还是有不少收获的。所以现在又回过头来看下之前刷的题目，然后慢慢整理一遍。
-列表  1 - Two Sum 2 - Add Two Number 3 - Longest Substring Without Repeating Characters 4 - Median of Two Sorted Arrays 5 - Longest Palindromic Substring 6 - Zigzag Conversion 7 - Reverse Integer 10 - Regular Expression Matching 11 - Container With Most Water 12 - Integer to Roman 14 - Longest Common Prefix 15 - 3Sum 16 - 3Sum Closest 17 - Letter Combinations of a Phone Number 19 - Remove Nth Node From End of List 20 - Valid Parentheses 22 - Generate Parentheses 23 - Merge k Sorted Lists 24 - Swap Nodes in Pairs 25 - Reverse Nodes in k-Group 31 - Next Permutation  </description>
+列表  1 - Two Sum 2 - Add Two Number 3 - Longest Substring Without Repeating Characters 4 - Median of Two Sorted Arrays 5 - Longest Palindromic Substring 6 - Zigzag Conversion 7 - Reverse Integer 10 - Regular Expression Matching 11 - Container With Most Water 12 - Integer to Roman 14 - Longest Common Prefix 15 - 3Sum 16 - 3Sum Closest 17 - Letter Combinations of a Phone Number 19 - Remove Nth Node From End of List 20 - Valid Parentheses 22 - Generate Parentheses 23 - Merge k Sorted Lists 24 - Swap Nodes in Pairs 25 - Reverse Nodes in k-Group 31 - Next Permutation 32 - Longest Valid Parentheses  </description>
     </item>
     
     <item>

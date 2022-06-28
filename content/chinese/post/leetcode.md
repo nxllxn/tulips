@@ -44,3 +44,4 @@ draft: false
 * **[24 - Swap Nodes in Pairs](../../post/leetcode-24-swap-nodes-in-pairs/)**
 * **[25 - Reverse Nodes in k-Group](../../post/leetcode-25-reverse-nodes-in-k-group/)**
 * **[31 - Next Permutation](../../post/leetcode-31-next-permutation/)**
+* **[32 - Longest Valid Parentheses](../../post/leetcode-32-longest-valid-parentheses/)**
