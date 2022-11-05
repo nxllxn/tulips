@@ -422,6 +422,63 @@
               
               
               <picture>
+                <source srcset="/images/post/post-1_hu771f7caf30f5a18d8db2d2d1d07622b1_361879_400x0_resize_q90_h2_box.webp" media="(max-width: 575px)">
+                <source srcset="/images/post/post-1_hu771f7caf30f5a18d8db2d2d1d07622b1_361879_540x0_resize_q90_h2_box.webp" media="(max-width: 767px)">
+                <source srcset="/images/post/post-1_hu771f7caf30f5a18d8db2d2d1d07622b1_361879_710x0_resize_q90_h2_box.webp" media="(max-width: 991px)">
+                <source srcset="/images/post/post-1_hu771f7caf30f5a18d8db2d2d1d07622b1_361879_750x0_resize_q90_h2_box.webp" media="(max-width: 1200px)">
+                <source srcset="/images/post/post-1_hu771f7caf30f5a18d8db2d2d1d07622b1_361879_750x0_resize_q90_h2_box.webp">
+                <img loading="lazy" class="img-fluid w-100" src="/images/post/post-1_hu771f7caf30f5a18d8db2d2d1d07622b1_361879_750x0_resize_q90_h2_box.webp" alt="post-thumb" width="1403" height="638">
+              </picture>
+              
+              
+            </div>
+          </div>
+          
+          
+          <div class="col-12 mx-auto">
+            <h3><a class="post-title" href="/post/jarvis-chat-bot/">A.L.I.C.E</a></h3>
+            <ul class="list-inline post-meta mb-4">
+              <li class="list-inline-item"><i class="fas fa-user mr-2"></i><a
+                  href="/author/%E9%83%81%E9%87%91%E9%A6%99%E5%95%8A/">郁金香啊</a></li>
+              <li class="list-inline-item">日期 : November 5, 2022</li>
+              <li class="list-inline-item">分类 :
+                <a
+                  href="/categories/ai" class="ml-1">Ai </a>
+                ,<a
+                  href="/categories/alice" class="ml-1">Alice </a>
+                ,<a
+                  href="/categories/chat-bot" class="ml-1">Chat bot </a>
+                ,<a
+                  href="/categories/grpc" class="ml-1">G rpc </a>
+                </li>
+              <li class="list-inline-item">标签 : <a
+                  href="/tags/ai" class="ml-1">Ai </a> ,<a
+                  href="/tags/alice" class="ml-1">Alice </a> ,<a
+                  href="/tags/%e8%81%8a%e5%a4%a9%e6%9c%ba%e5%99%a8%e4%ba%ba" class="ml-1">聊天机器人 </a> 
+              </li>
+            </ul>
+            <p>最近在看rpc相关的内容，刚好看到gRPC关于客户端服务端双向流模式(bidirectional streaming)，所以也想顺便写个小demo看下效果。
+这种双向流模式，我觉得也可以实现一个聊天的效果，所以就搜索了一下，然后发现一个库，基于AIML（Artificial Intelligence Markup Language）实现聊天机器人 ，也觉得很有意思就拿来用一下。
+关于 AIML 以及 ALICE 相关的内容，如果感兴趣，可以查看连接。
+此处基于这个库以及Alice的AIML实现了一个简单的星爵向Jarvis问问题的小Demo。
+//jarvis.proto syntax = &#34;proto3&#34;;option java_multiple_files = true;option java_package = &#34;io.grpc.examples.jarvis&#34;;option java_outer_classname = &#34;JarvisAI&#34;;message Question { string content = 1;}message Answer { string content = 1;}service Jarvis { rpc answer (stream Question) returns (stream Answer) {}}package io.grpc.examples.jarvis;  import io.</p>
+            <a href="/post/jarvis-chat-bot/" class="btn btn-outline-primary">继续阅读</a>
+          </div>
+        </article>
+        
+        <article class="row mb-5">
+          
+          <div class="col-12">
+            <div class="post-slider mb-4">
+              
+              
+              
+              
+              
+              
+              
+              
+              <picture>
                 <source srcset="/images/leetcode/32-longest-valid-parentheses_hua9fc06e68c5ab17f0493b4770d879be3_70320_400x0_resize_q90_h2_box_3.webp" media="(max-width: 575px)">
                 <source srcset="/images/leetcode/32-longest-valid-parentheses_hua9fc06e68c5ab17f0493b4770d879be3_70320_540x0_resize_q90_h2_box_3.webp" media="(max-width: 767px)">
                 <source srcset="/images/leetcode/32-longest-valid-parentheses_hua9fc06e68c5ab17f0493b4770d879be3_70320_710x0_resize_q90_h2_box_3.webp" media="(max-width: 991px)">
@@ -2102,11 +2159,19 @@ Life is a series of natural and spontaneous …</span>
 <div class="widget">
   <h5 class="widget-title"><span>分类</span></h5>
   <ul class="list-unstyled widget-list">
+    <li><a href="/categories/ai" class="d-flex">Ai
+        <small class="ml-auto">(1)</small></a></li>
     <li><a href="/categories/algorithms" class="d-flex">Algorithms
+        <small class="ml-auto">(1)</small></a></li>
+    <li><a href="/categories/alice" class="d-flex">Alice
+        <small class="ml-auto">(1)</small></a></li>
+    <li><a href="/categories/chat-bot" class="d-flex">Chat bot
         <small class="ml-auto">(1)</small></a></li>
     <li><a href="/categories/concurrent-programing" class="d-flex">Concurrent programing
         <small class="ml-auto">(1)</small></a></li>
     <li><a href="/categories/funnyideas" class="d-flex">Funnyideas
+        <small class="ml-auto">(1)</small></a></li>
+    <li><a href="/categories/grpc" class="d-flex">Grpc
         <small class="ml-auto">(1)</small></a></li>
     <li><a href="/categories/java" class="d-flex">Java
         <small class="ml-auto">(3)</small></a></li>
@@ -2124,6 +2189,25 @@ Life is a series of natural and spontaneous …</span>
   <h5 class="widget-title"><span>最近文章</span></h5>
   <!-- post-item -->
   <ul class="list-unstyled widget-list mb-0">
+  
+    <li class="media widget-post align-items-center">
+      <a href="https://www.tlst.cc/post/jarvis-chat-bot/">        
+        
+        
+        
+        
+        
+        
+        <img loading="lazy" class="mr-3" src="https://www.tlst.cc/images/post/post-1_hu771f7caf30f5a18d8db2d2d1d07622b1_361879_60x60_fill_q90_h2_box_center.webp" alt="post-thumb">
+        
+        
+        
+      </a>
+      <div class="media-body">
+        <h5 class="h6 mb-0"><a href="https://www.tlst.cc/post/jarvis-chat-bot/">A.L.I.C.E</a></h5>
+        <small>November 5, 2022</small>
+      </div>
+    </li>
   
     <li class="media widget-post align-items-center">
       <a href="https://www.tlst.cc/post/leetcode-32-longest-valid-parentheses/">        
@@ -2163,31 +2247,14 @@ Life is a series of natural and spontaneous …</span>
       </div>
     </li>
   
-    <li class="media widget-post align-items-center">
-      <a href="https://www.tlst.cc/post/leetcode-25-reverse-nodes-in-k-group/">        
-        
-        
-        
-        
-        
-        
-        <img loading="lazy" class="mr-3" src="https://www.tlst.cc/images/leetcode/25-reverse-nodes-in-k-group_hu782ec18383fa7ef137dc947307378b05_55442_60x60_fill_q90_h2_box_center_3.webp" alt="post-thumb">
-        
-        
-        
-      </a>
-      <div class="media-body">
-        <h5 class="h6 mb-0"><a href="https://www.tlst.cc/post/leetcode-25-reverse-nodes-in-k-group/">Reverse Nodes in k-Group</a></h5>
-        <small>May 18, 2022</small>
-      </div>
-    </li>
-  
   </ul>
 </div><!-- tags -->
 <div class="widget">
   <h5 class="widget-title"><span>标签</span></h5>
   <ul class="list-inline widget-list-inline">
+    <li class="list-inline-item"><a href="/tags/ai">Ai</a></li>
     <li class="list-inline-item"><a href="/tags/algorithm">Algorithm</a></li>
+    <li class="list-inline-item"><a href="/tags/alice">Alice</a></li>
     <li class="list-inline-item"><a href="/tags/concurrent-programing">Concurrent programing</a></li>
     <li class="list-inline-item"><a href="/tags/dp">Dp</a></li>
     <li class="list-inline-item"><a href="/tags/dynamic-programming">Dynamic programming</a></li>
@@ -2205,6 +2272,7 @@ Life is a series of natural and spontaneous …</span>
     <li class="list-inline-item"><a href="/tags/%e5%b9%b6%e5%8f%91%e7%bc%96%e7%a8%8b">并发编程</a></li>
     <li class="list-inline-item"><a href="/tags/%e7%ae%80%e5%8d%95%e9%9a%be%e5%ba%a6">简单难度</a></li>
     <li class="list-inline-item"><a href="/tags/%e7%ae%97%e6%b3%95">算法</a></li>
+    <li class="list-inline-item"><a href="/tags/%e8%81%8a%e5%a4%a9%e6%9c%ba%e5%99%a8%e4%ba%ba">聊天机器人</a></li>
   </ul>
 </div><!-- Social -->
 <div class="widget">

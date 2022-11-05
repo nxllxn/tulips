@@ -2,11 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.tlst.cc/post/jarvis-chat-bot/</loc>
+    <lastmod>2022-11-05T13:38:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/tags/ai/</loc>
+    <lastmod>2022-11-05T13:38:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/categories/ai/</loc>
+    <lastmod>2022-11-05T13:38:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/tags/alice/</loc>
+    <lastmod>2022-11-05T13:38:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/categories/alice/</loc>
+    <lastmod>2022-11-05T13:38:33+08:00</lastmod>
+  </url><url>
     <loc>https://www.tlst.cc/post/</loc>
-    <lastmod>2022-05-31T19:42:33+08:00</lastmod>
+    <lastmod>2022-11-05T13:38:33+08:00</lastmod>
   </url><url>
     <loc>https://www.tlst.cc/categories/</loc>
-    <lastmod>2022-05-31T19:42:33+08:00</lastmod>
+    <lastmod>2022-11-05T13:38:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/categories/chat-bot/</loc>
+    <lastmod>2022-11-05T13:38:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/categories/grpc/</loc>
+    <lastmod>2022-11-05T13:38:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/tags/</loc>
+    <lastmod>2022-11-05T13:38:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/</loc>
+    <lastmod>2022-11-05T13:38:33+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tlst.cc/tags/%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA/</loc>
+    <lastmod>2022-11-05T13:38:33+08:00</lastmod>
   </url><url>
     <loc>https://www.tlst.cc/tags/java/</loc>
     <lastmod>2022-05-31T19:42:33+08:00</lastmod>
@@ -18,12 +48,6 @@
     <lastmod>2022-05-31T19:42:33+08:00</lastmod>
   </url><url>
     <loc>https://www.tlst.cc/post/leetcode-32-longest-valid-parentheses/</loc>
-    <lastmod>2022-05-31T19:42:33+08:00</lastmod>
-  </url><url>
-    <loc>https://www.tlst.cc/tags/</loc>
-    <lastmod>2022-05-31T19:42:33+08:00</lastmod>
-  </url><url>
-    <loc>https://www.tlst.cc/</loc>
     <lastmod>2022-05-31T19:42:33+08:00</lastmod>
   </url><url>
     <loc>https://www.tlst.cc/tags/%E5%9B%B0%E9%9A%BE%E9%9A%BE%E5%BA%A6/</loc>

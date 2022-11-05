@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ALICE on Tulips</title>
+    <link>https://www.tlst.cc/tags/alice/</link>
+    <description>Recent content in ALICE on Tulips</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <copyright>Copyright @ 2022 郁金香啊</copyright>
+    <lastBuildDate>Sat, 05 Nov 2022 13:38:33 +0800</lastBuildDate><atom:link href="https://www.tlst.cc/tags/alice/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A.L.I.C.E</title>
+      <link>https://www.tlst.cc/post/jarvis-chat-bot/</link>
+      <pubDate>Sat, 05 Nov 2022 13:38:33 +0800</pubDate>
+      
+      <guid>https://www.tlst.cc/post/jarvis-chat-bot/</guid>
+      <description>最近在看rpc相关的内容，刚好看到gRPC关于客户端服务端双向流模式(bidirectional streaming)，所以也想顺便写个小demo看下效果。
+这种双向流模式，我觉得也可以实现一个聊天的效果，所以就搜索了一下，然后发现一个库，基于AIML（Artificial Intelligence Markup Language）实现聊天机器人 ，也觉得很有意思就拿来用一下。
+关于 AIML 以及 ALICE 相关的内容，如果感兴趣，可以查看连接。
+此处基于这个库以及Alice的AIML实现了一个简单的星爵向Jarvis问问题的小Demo。
+//jarvis.proto syntax = &amp;#34;proto3&amp;#34;;option java_multiple_files = true;option java_package = &amp;#34;io.grpc.examples.jarvis&amp;#34;;option java_outer_classname = &amp;#34;JarvisAI&amp;#34;;message Question { string content = 1;}message Answer { string content = 1;}service Jarvis { rpc answer (stream Question) returns (stream Answer) {}}package io.grpc.examples.jarvis;  import io.</description>
+    </item>
+    
+  </channel>
+</rss>
